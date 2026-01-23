@@ -1,0 +1,306 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эрик Мурсалимов | QA Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ЛЕВЫЙ САЙДБАР (ФИКСИРОВАННЫЙ) -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- Заголовок -->
+                <header class="header">
+                    <h1 class="name">Эрик Мурсалимов</h1>
+                    <h2 class="title">QA Engineer</h2>
+                    <p class="tagline" data-lang="ru">Ручное, API, интеграционное тестирование</p>
+                    <p class="tagline" data-lang="en" style="display: none;">Manual, API, Integration Testing</p>
+                </header>
+
+                <!-- Навигация -->
+                <nav class="navigation">
+                    <ol class="nav-list">
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">
+                                <span class="nav-number">01.</span>
+                                <span class="nav-text" data-lang="ru">Обо мне</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">About</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#experience" class="nav-link">
+                                <span class="nav-number">02.</span>
+                                <span class="nav-text" data-lang="ru">Опыт</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">Experience</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#projects" class="nav-link">
+                                <span class="nav-number">03.</span>
+                                <span class="nav-text" data-lang="ru">Проекты</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">Projects</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#education" class="nav-link">
+                                <span class="nav-number">04.</span>
+                                <span class="nav-text" data-lang="ru">Образование</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">Education</span>
+                            </a>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Блок с кнопкой языка и соцсетями -->
+                <div class="sidebar-bottom">
+                    <!-- Кнопка переключения языка -->
+                    <button id="language-switcher" class="language-btn" aria-label="Switch language">
+                        <span class="language-text">EN</span>
+                    </button>
+
+                    <!-- Социальные ссылки -->
+                    <div class="social-links">
+                        <a href="mailto:erik.mursalimov@mail.ru" aria-label="Email" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://t.me/favoran" target="_blank" aria-label="Telegram" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="LinkedIn" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="GitHub" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ПРАВАЯ КОЛОНКА (ОСНОВНОЙ КОНТЕНТ) -->
+        <main class="main-content">
+            <!-- Секция "Обо мне" -->
+            <section id="about" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">01.</span>
+                        <span class="section-text" data-lang="ru">Обо мне</span>
+                        <span class="section-text" data-lang="en" style="display: none;">About</span>
+                    </h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <p data-lang="ru">
+                        Middle QA-инженер с опытом полного цикла тестирования веб-приложений и API. Работал в командах до 20 человек по Scrum, участвовал в планировании, ретроспективах и релизах.
+                    </p>
+                    <p data-lang="ru">
+                        Специализируюсь на интеграционном и регрессионном тестировании, анализе логов, работе с SQL и документировании тестовой документации. Имею опыт автоматизации тестов на Java и Python.
+                    </p>
+                    <p data-lang="en" style="display: none;">
+                        Middle QA Engineer with experience in full-cycle testing of web applications and APIs. Worked in teams of up to 20 people using Scrum, participated in planning, retrospectives, and releases.
+                    </p>
+                    <p data-lang="en" style="display: none;">
+                        Specialized in integration and regression testing, log analysis, SQL, and test documentation. Have experience in test automation with Java and Python.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Секция "Опыт" -->
+            <section id="experience" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">02.</span>
+                        <span class="section-text" data-lang="ru">Опыт</span>
+                        <span class="section-text" data-lang="en" style="display: none;">Experience</span>
+                    </h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <!-- Опыт 1 -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title" data-lang="ru">Стартап Fastact</h3>
+                            <h3 class="experience-title" data-lang="en" style="display: none;">Fastact Startup</h3>
+                            <span class="experience-period">09/2025 — настоящее время (2 месяца)</span>
+                        </div>
+                        <p class="experience-subtitle" data-lang="ru">Part-time QA Engineer</p>
+                        <p class="experience-subtitle" data-lang="en" style="display: none;">Part-time QA Engineer</p>
+                        <ul class="experience-list">
+                            <li data-lang="ru">Разработка и поддержка автоматизированных тестов на Java для бэкенда</li>
+                            <li data-lang="ru">Покрытие пользовательских сценариев через мануальное тестирование</li>
+                            <li data-lang="ru">Покрыл значительную часть бизнес-логики автотестами (coverage >80%)</li>
+                            <li data-lang="en" style="display: none;">Development and maintenance of automated Java tests for backend</li>
+                            <li data-lang="en" style="display: none;">Coverage of user scenarios through manual testing</li>
+                            <li data-lang="en" style="display: none;">Covered a significant part of business logic with autotests (coverage >80%)</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JUnit5</span>
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Kafka</span>
+                        </div>
+                    </div>
+
+                    <!-- Опыт 2 -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title" data-lang="ru">Dunice (Natcar)</h3>
+                            <h3 class="experience-title" data-lang="en" style="display: none;">Dunice (Natcar)</h3>
+                            <span class="experience-period">03/2023 — настоящее время (2 года 8 месяцев)</span>
+                        </div>
+                        <p class="experience-subtitle" data-lang="ru">QA Engineer</p>
+                        <p class="experience-subtitle" data-lang="en" style="display: none;">QA Engineer</p>
+                        <ul class="experience-list">
+                            <li data-lang="ru">Полный цикл тестирования бэкенда и фронтенда, включая API и интеграции</li>
+                            <li data-lang="ru">Протестировал интеграцию с логистической системой Cargorun, выявив 30+ багов</li>
+                            <li data-lang="ru">Настроил виртуальные среды для тестирования, обеспечив 100% покрытие кейсами</li>
+                            <li data-lang="en" style="display: none;">Full-cycle testing of backend and frontend, including API and integrations</li>
+                            <li data-lang="en" style="display: none;">Tested integration with Cargorun logistics system, identifying 30+ bugs</li>
+                            <li data-lang="en" style="display: none;">Set up virtual environments for testing, ensuring 100% case coverage</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">Zephyr</span>
+                            <span class="tech-tag">Kibana</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Опыт 3 -->
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title" data-lang="ru">SMENA</h3>
+                            <h3 class="experience-title" data-lang="en" style="display: none;">SMENA</h3>
+                            <span class="experience-period">05/2021 — 03/2023 (1 год 11 месяцев)</span>
+                        </div>
+                        <p class="experience-subtitle" data-lang="ru">QA Engineer</p>
+                        <p class="experience-subtitle" data-lang="en" style="display: none;">QA Engineer</p>
+                        <ul class="experience-list">
+                            <li data-lang="ru">Проводил функциональное, регрессионное, smoke тестирование веб-продуктов</li>
+                            <li data-lang="ru">Разрабатывал и поддерживал тестовую документацию (95% покрытие функционала)</li>
+                            <li data-lang="ru">Выявил и задокументировал 100+ багов, в том числе критических</li>
+                            <li data-lang="en" style="display: none;">Conducted functional, regression, smoke testing of web products</li>
+                            <li data-lang="en" style="display: none;">Developed and maintained test documentation (95% feature coverage)</li>
+                            <li data-lang="en" style="display: none;">Identified and documented 100+ bugs, including critical ones</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">TestRail</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">DevTools</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция "Проекты" -->
+            <section id="projects" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">03.</span>
+                        <span class="section-text" data-lang="ru">Проекты</span>
+                        <span class="section-text" data-lang="en" style="display: none;">Projects</span>
+                    </h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <!-- Проект 1 -->
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3 class="project-title" data-lang="ru">Интеграция с логистической системой Cargorun</h3>
+                            <h3 class="project-title" data-lang="en" style="display: none;">Integration with Cargorun Logistics System</h3>
+                            <div class="project-links">
+                                <!-- Можно добавить иконки ссылок при наличии -->
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            <p data-lang="ru">
+                                Полное тестирование интеграции API между платформой Dunice и логистическим провайдером Cargorun. Включало создание виртуальных сред, написание 100% тест-кейсов, анализ логов в Kibana.
+                            </p>
+                            <p data-lang="en" style="display: none;">
+                                Comprehensive testing of API integration between Dunice platform and Cargorun logistics provider. Included creating virtual environments, writing 100% test cases, log analysis in Kibana.
+                            </p>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">API Testing</span>
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">Kibana</span>
+                            <span class="tech-tag">Zephyr</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Проект 2 -->
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3 class="project-title" data-lang="ru">Автоматизация тестов для Fastact</h3>
+                            <h3 class="project-title" data-lang="en" style="display: none;">Test Automation for Fastact</h3>
+                            <div class="project-links">
+                                <!-- Можно добавить иконки ссылок при наличии -->
+                            </div>
+                        </div>
+                        <div class="project-description">
+                            <p data-lang="ru">
+                                Разработка фреймворка автоматизированного тестирования на Java для бэкенд-сервисов. Результат: покрытие >80% бизнес-логики, снижение регрессионных дефектов на 30-50%.
+                            </p>
+                            <p data-lang="en" style="display: none;">
+                                Development of automated testing framework in Java for backend services. Result: >80% business logic coverage, reduction of regression defects by 30-50%.
+                            </p>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JUnit5</span>
+                            <span class="tech-tag">Mockito</span>
+                            <span class="tech-tag">Kafka</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция "Образование" -->
+            <section id="education" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">04.</span>
+                        <span class="section-text" data-lang="ru">Образование</span>
+                        <span class="section-text" data-lang="en" style="display: none;">Education</span>
+                    </h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <div class="education-item">
+                        <h3 class="education-title" data-lang="ru">ТУРУС — Кафедра инженерной и вычислительной техники</h3>
+                        <h3 class="education-title" data-lang="en" style="display: none;">TURUS — Department of Engineering and Computer Science</h3>
+                        <p class="education-period" data-lang="ru">2023 — 2028 (ожидается)</p>
+                        <p class="education-period" data-lang="en" style="display: none;">2023 — 2028 (expected)</p>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title" data-lang="ru">ГТНУ — Инженер в нефтегазовой отрасли</h3>
+                        <h3 class="education-title" data-lang="en" style="display: none;">GTNU — Oil and Gas Industry Engineer</h3>
+                        <p class="education-period" data-lang="ru">2018 — 2022</p>
+                        <p class="education-period" data-lang="en" style="display: none;">2018 — 2022</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Футер -->
+            <footer class="footer">
+                <p class="footer-text" data-lang="ru">Сайт создан для портфолио на GitHub Pages</p>
+                <p class="footer-text" data-lang="en" style="display: none;">Website created for GitHub Pages portfolio</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

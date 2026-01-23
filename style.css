@@ -91,9 +91,13 @@ body {
     padding: 0.5rem 0;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: #64ffda;
+.nav-item .nav-link.active {
+    color: #64ffda !important;
+}
+
+/* Или ещё более специфичный: */
+aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
+    color: #64ffda !important;
 }
 
 .nav-number {

@@ -207,55 +207,46 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(updateAllExperiences, 10);
     };
 
-    // ===== ПЛАВНЫЙ СКРОЛЛ =====
+    // ===== ПЛАВНЫЙ СКРОЛЛ (чистый, без аналитики) =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
+            e.preventDefault(); // Только preventDefault, больше ничего
 
-            // Проверяем, что это якорь на этой же странице
-            if (href.startsWith('#') && href !== '#') {
-                e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-                const targetId = href;
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    // Вычисляем позицию с учетом фиксированного сайдбара
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const headerOffset = 80; // Отступ сверху
-                    const offsetPosition = targetPosition - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-
-                    // Обновляем URL без перезагрузки
-                    history.pushState(null, null, href);
-                }
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Простой нативный скролл
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
 
     // ===== АКТИВНЫЕ ССЫЛКИ В НАВИГАЦИИ =====
     function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const scrollPos = window.scrollY + 150; // Отступ
 
-        let currentSectionId = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSectionId = section.id;
-            }
-        });
+            const sectionId = section.id;
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                // Удаляем active у всех
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Добавляем активному
+                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                    console.log(`Active: ${sectionId}`);
+                }
             }
         });
     }

@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentLang = 'ru';
 
+    function updateResumeLink() {
+        const resumeBtn = document.getElementById('resume-btn');
+        if (resumeBtn) {
+            if (currentLang === 'ru') {
+                resumeBtn.href = resumeBtn.getAttribute('data-href-ru');
+            } else {
+                resumeBtn.href = resumeBtn.getAttribute('data-href-en');
+            }
+        }
+    }
+
     function switchLanguage() {
         if (currentLang === 'ru') {
             // Переключаем на английский
@@ -45,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
             currentLang = 'ru';
         }
 
+        updateResumeLink();
         localStorage.setItem('portfolioLanguage', currentLang);
+
     }
 
     languageSwitcher.addEventListener('click', switchLanguage);
@@ -54,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedLang = localStorage.getItem('portfolioLanguage');
     if (savedLang && savedLang === 'en') {
         switchLanguage();
+    } else {
+        updateResumeLink(); // Обновляем ссылку даже для русского
     }
 
     // ===== АВТОМАТИЧЕСКИЙ РАСЧЁТ СТАЖА =====
@@ -195,17 +210,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ПЛАВНЫЙ СКРОЛЛ =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
 
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            // Проверяем, что это якорь на этой же странице
+            if (href.startsWith('#') && href !== '#') {
+                e.preventDefault();
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 50,
-                    behavior: 'smooth'
-                });
+                const targetId = href;
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Вычисляем позицию с учетом фиксированного сайдбара
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const headerOffset = 80; // Отступ сверху
+                    const offsetPosition = targetPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Обновляем URL без перезагрузки
+                    history.pushState(null, null, href);
+                }
             }
         });
     });

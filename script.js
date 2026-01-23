@@ -11,21 +11,40 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguage() {
         if (currentLang === 'ru') {
             // Переключаем на английский
-            ruElements.forEach(el => el.style.display = 'none');
-            enElements.forEach(el => el.style.display = 'block' || 'inline');
+            ruElements.forEach(el => {
+                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
+                    el.style.display = 'none';
+                }
+            });
+            enElements.forEach(el => {
+                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
+                    el.style.display = 'block' || 'inline' || 'flex';
+                } else {
+                    el.style.display = 'inline-flex';
+                }
+            });
             languageText.textContent = 'RU';
             document.documentElement.lang = 'en';
             currentLang = 'en';
         } else {
             // Переключаем на русский
-            enElements.forEach(el => el.style.display = 'none');
-            ruElements.forEach(el => el.style.display = 'block' || 'inline');
+            enElements.forEach(el => {
+                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
+                    el.style.display = 'none';
+                }
+            });
+            ruElements.forEach(el => {
+                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
+                    el.style.display = 'block' || 'inline' || 'flex';
+                } else {
+                    el.style.display = 'inline-flex';
+                }
+            });
             languageText.textContent = 'EN';
             document.documentElement.lang = 'ru';
             currentLang = 'ru';
         }
 
-        // Сохраняем выбор в localStorage
         localStorage.setItem('portfolioLanguage', currentLang);
     }
 
@@ -38,20 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===== АВТОМАТИЧЕСКИЙ РАСЧЁТ СТАЖА =====
-    function calculateExperience(startDateStr, elementId) {
+    function calculateExperience(startDateStr, elementIdPrefix) {
         const startDate = new Date(startDateStr);
         const currentDate = new Date();
 
         let years = currentDate.getFullYear() - startDate.getFullYear();
         let months = currentDate.getMonth() - startDate.getMonth();
 
-        // Корректировка, если текущий месяц меньше начального
         if (months < 0) {
             years--;
             months += 12;
         }
 
-        // Если начальный день месяца больше текущего дня, вычитаем месяц
         if (currentDate.getDate() < startDate.getDate()) {
             months--;
             if (months < 0) {
@@ -60,23 +77,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Форматирование текста
-        let experienceText = '';
+        // Обновляем оба языковых варианта
+        const ruElement = document.getElementById(elementIdPrefix + '-ru');
+        const enElement = document.getElementById(elementIdPrefix + '-en');
 
-        if (years === 0 && months === 0) {
-            experienceText = 'менее месяца';
-        } else if (years === 0) {
-            experienceText = `${months} ${getMonthText(months, currentLang)}`;
-        } else if (months === 0) {
-            experienceText = `${years} ${getYearText(years, currentLang)}`;
-        } else {
-            experienceText = `${years} ${getYearText(years, currentLang)} ${months} ${getMonthText(months, currentLang)}`;
+        if (ruElement) {
+            let ruText = '';
+            if (years === 0 && months === 0) {
+                ruText = 'менее месяца';
+            } else if (years === 0) {
+                ruText = `${months} ${getMonthText(months, 'ru')}`;
+            } else if (months === 0) {
+                ruText = `${years} ${getYearText(years, 'ru')}`;
+            } else {
+                ruText = `${years} ${getYearText(years, 'ru')} ${months} ${getMonthText(months, 'ru')}`;
+            }
+            ruElement.textContent = ruText;
         }
 
-        // Обновляем текст в элементе
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.textContent = experienceText;
+        if (enElement) {
+            let enText = '';
+            if (years === 0 && months === 0) {
+                enText = 'less than a month';
+            } else if (years === 0) {
+                enText = `${months} ${getMonthText(months, 'en')}`;
+            } else if (months === 0) {
+                enText = `${years} ${getYearText(years, 'en')}`;
+            } else {
+                enText = `${years} ${getYearText(years, 'en')} ${months} ${getMonthText(months, 'en')}`;
+            }
+            enElement.textContent = enText;
         }
     }
 
@@ -101,13 +131,55 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function updateDurationsForLanguage(lang) {
+    const durations = document.querySelectorAll('.experience-duration');
+
+    durations.forEach(element => {
+        const startDateStr = element.getAttribute('data-start-date');
+        if (!startDateStr) return;
+
+        const startDate = new Date(startDateStr);
+        const currentDate = new Date();
+
+        let years = currentDate.getFullYear() - startDate.getFullYear();
+        let months = currentDate.getMonth() - startDate.getMonth();
+
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        if (currentDate.getDate() < startDate.getDate()) {
+            months--;
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+        }
+
+        let durationText = '';
+
+        if (years === 0 && months === 0) {
+            durationText = lang === 'ru' ? 'менее месяца' : 'less than a month';
+        } else if (years === 0) {
+            durationText = `${months} ${getMonthText(months, lang)}`;
+        } else if (months === 0) {
+            durationText = `${years} ${getYearText(years, lang)}`;
+        } else {
+            durationText = `${years} ${getYearText(years, lang)} ${months} ${getMonthText(months, lang)}`;
+        }
+
+        element.textContent = durationText;
+    });
+}
+
     // Функция для обновления стажа при смене языка
     function updateAllExperiences() {
-        // Dunice: начало 03/2023
-        calculateExperience('2023-03-01', 'dunice-experience');
+        // Dunice
+        calculateExperience('2023-03-01', 'dunice-experience-main');
 
-        // Fastact: начало 09/2025
-        calculateExperience('2025-09-01', 'fastact-experience');
+        // Fastact
+        calculateExperience('2025-09-01', 'fastact-experience-main');
     }
 
     // Вызываем при загрузке

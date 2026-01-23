@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
 <head>
@@ -28,24 +27,24 @@
                 <nav class="navigation">
                     <ol class="nav-list">
                         <li class="nav-item">
-                            <a href="#about" class="nav-link">
-                                <span class="nav-number">01.</span>
-                                <span class="nav-text" data-lang="ru">Обо мне</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">About</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#experience" class="nav-link">
-                                <span class="nav-number">02.</span>
+                                <span class="nav-number">01.</span>
                                 <span class="nav-text" data-lang="ru">Опыт</span>
                                 <span class="nav-text" data-lang="en" style="display: none;">Experience</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#projects" class="nav-link">
+                            <a href="#skills" class="nav-link">
+                                <span class="nav-number">02.</span>
+                                <span class="nav-text" data-lang="ru">Навыки</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">Skills</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">
                                 <span class="nav-number">03.</span>
-                                <span class="nav-text" data-lang="ru">Проекты</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">Projects</span>
+                                <span class="nav-text" data-lang="ru">Обо мне</span>
+                                <span class="nav-text" data-lang="en" style="display: none;">About</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -73,10 +72,10 @@
                         <a href="https://t.me/favoran" target="_blank" aria-label="Telegram" class="social-link">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" target="_blank" aria-label="GitHub" class="social-link">
+                        <a href="https://github.com/xadummiex" target="_blank" aria-label="GitHub" class="social-link">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -86,49 +85,36 @@
 
         <!-- ПРАВАЯ КОЛОНКА (ОСНОВНОЙ КОНТЕНТ) -->
         <main class="main-content">
-            <!-- Секция "Обо мне" -->
-            <section id="about" class="section">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="section-number">01.</span>
-                        <span class="section-text" data-lang="ru">Обо мне</span>
-                        <span class="section-text" data-lang="en" style="display: none;">About</span>
-                    </h2>
-                    <div class="line"></div>
-                </div>
-                <div class="section-content">
-                    <p data-lang="ru">
-                        Middle QA-инженер с опытом полного цикла тестирования веб-приложений и API. Работал в командах до 20 человек по Scrum, участвовал в планировании, ретроспективах и релизах.
-                    </p>
-                    <p data-lang="ru">
-                        Специализируюсь на интеграционном и регрессионном тестировании, анализе логов, работе с SQL и документировании тестовой документации. Имею опыт автоматизации тестов на Java и Python.
-                    </p>
-                    <p data-lang="en" style="display: none;">
-                        Middle QA Engineer with experience in full-cycle testing of web applications and APIs. Worked in teams of up to 20 people using Scrum, participated in planning, retrospectives, and releases.
-                    </p>
-                    <p data-lang="en" style="display: none;">
-                        Specialized in integration and regression testing, log analysis, SQL, and test documentation. Have experience in test automation with Java and Python.
-                    </p>
-                </div>
-            </section>
-
             <!-- Секция "Опыт" -->
             <section id="experience" class="section">
                 <div class="section-header">
                     <h2 class="section-title">
-                        <span class="section-number">02.</span>
+                        <span class="section-number">01.</span>
                         <span class="section-text" data-lang="ru">Опыт</span>
                         <span class="section-text" data-lang="en" style="display: none;">Experience</span>
                     </h2>
                     <div class="line"></div>
                 </div>
+
+                <!-- Кнопка "Полное резюме" -->
+                <div class="resume-btn-container">
+                    <a href="resume_ru.pdf" class="resume-btn" data-lang="ru" target="_blank">
+                        <i class="fas fa-download"></i>
+                        <span>Полное резюме (PDF)</span>
+                    </a>
+                    <a href="resume_en.pdf" class="resume-btn" data-lang="en" style="display: none;" target="_blank">
+                        <i class="fas fa-download"></i>
+                        <span>Full Resume (PDF)</span>
+                    </a>
+                </div>
+
                 <div class="section-content">
                     <!-- Опыт 1 -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <h3 class="experience-title" data-lang="ru">Стартап Fastact</h3>
                             <h3 class="experience-title" data-lang="en" style="display: none;">Fastact Startup</h3>
-                            <span class="experience-period">09/2025 — настоящее время (2 месяца)</span>
+                            <span class="experience-period">09/2025 — настоящее время (<span id="fastact-experience">2 месяца</span>)</span>
                         </div>
                         <p class="experience-subtitle" data-lang="ru">Part-time QA Engineer</p>
                         <p class="experience-subtitle" data-lang="en" style="display: none;">Part-time QA Engineer</p>
@@ -154,7 +140,7 @@
                         <div class="experience-header">
                             <h3 class="experience-title" data-lang="ru">Dunice (Natcar)</h3>
                             <h3 class="experience-title" data-lang="en" style="display: none;">Dunice (Natcar)</h3>
-                            <span class="experience-period">03/2023 — настоящее время (2 года 8 месяцев)</span>
+                            <span class="experience-period">03/2023 — настоящее время (<span id="dunice-experience">2 года 10 месяцев</span>)</span>
                         </div>
                         <p class="experience-subtitle" data-lang="ru">QA Engineer</p>
                         <p class="experience-subtitle" data-lang="en" style="display: none;">QA Engineer</p>
@@ -202,68 +188,121 @@
                 </div>
             </section>
 
-            <!-- Секция "Проекты" -->
-            <section id="projects" class="section">
+            <!-- Секция "Навыки" -->
+            <section id="skills" class="section">
                 <div class="section-header">
                     <h2 class="section-title">
-                        <span class="section-number">03.</span>
-                        <span class="section-text" data-lang="ru">Проекты</span>
-                        <span class="section-text" data-lang="en" style="display: none;">Projects</span>
+                        <span class="section-number">02.</span>
+                        <span class="section-text" data-lang="ru">Навыки</span>
+                        <span class="section-text" data-lang="en" style="display: none;">Skills</span>
                     </h2>
                     <div class="line"></div>
                 </div>
                 <div class="section-content">
-                    <!-- Проект 1 -->
-                    <div class="project-item">
-                        <div class="project-header">
-                            <h3 class="project-title" data-lang="ru">Интеграция с логистической системой Cargorun</h3>
-                            <h3 class="project-title" data-lang="en" style="display: none;">Integration with Cargorun Logistics System</h3>
-                            <div class="project-links">
-                                <!-- Можно добавить иконки ссылок при наличии -->
+                    <div class="skills-grid">
+                        <!-- Типы тестирования -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Типы тестирования</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Testing Types</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">Unit</span>
+                                <span class="skill-tag">Smoke</span>
+                                <span class="skill-tag">Regression</span>
+                                <span class="skill-tag">Integration</span>
+                                <span class="skill-tag">E2E</span>
+                                <span class="skill-tag">API</span>
+                                <span class="skill-tag">UI</span>
                             </div>
                         </div>
-                        <div class="project-description">
-                            <p data-lang="ru">
-                                Полное тестирование интеграции API между платформой Dunice и логистическим провайдером Cargorun. Включало создание виртуальных сред, написание 100% тест-кейсов, анализ логов в Kibana.
-                            </p>
-                            <p data-lang="en" style="display: none;">
-                                Comprehensive testing of API integration between Dunice platform and Cargorun logistics provider. Included creating virtual environments, writing 100% test cases, log analysis in Kibana.
-                            </p>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">API Testing</span>
-                            <span class="tech-tag">Postman</span>
-                            <span class="tech-tag">Kibana</span>
-                            <span class="tech-tag">Zephyr</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                    </div>
 
-                    <!-- Проект 2 -->
-                    <div class="project-item">
-                        <div class="project-header">
-                            <h3 class="project-title" data-lang="ru">Автоматизация тестов для Fastact</h3>
-                            <h3 class="project-title" data-lang="en" style="display: none;">Test Automation for Fastact</h3>
-                            <div class="project-links">
-                                <!-- Можно добавить иконки ссылок при наличии -->
+                        <!-- Инструменты -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Инструменты</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Tools</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">Jira</span>
+                                <span class="skill-tag">Zephyr</span>
+                                <span class="skill-tag">TestRail</span>
+                                <span class="skill-tag">Confluence</span>
+                                <span class="skill-tag">Postman</span>
+                                <span class="skill-tag">Swagger</span>
+                                <span class="skill-tag">Charles</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Kibana</span>
+                                <span class="skill-tag">Figma</span>
                             </div>
                         </div>
-                        <div class="project-description">
-                            <p data-lang="ru">
-                                Разработка фреймворка автоматизированного тестирования на Java для бэкенд-сервисов. Результат: покрытие >80% бизнес-логики, снижение регрессионных дефектов на 30-50%.
-                            </p>
-                            <p data-lang="en" style="display: none;">
-                                Development of automated testing framework in Java for backend services. Result: >80% business logic coverage, reduction of regression defects by 30-50%.
-                            </p>
+
+                        <!-- Базы данных -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Базы данных</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Databases</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">SQLite</span>
+                            </div>
                         </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">JUnit5</span>
-                            <span class="tech-tag">Mockito</span>
-                            <span class="tech-tag">Kafka</span>
-                            <span class="tech-tag">Docker</span>
+
+                        <!-- Технологии -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Технологии</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Technologies</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">HTTP/REST</span>
+                                <span class="skill-tag">JSON/XML</span>
+                                <span class="skill-tag">DevTools</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                            </div>
+                        </div>
+
+                        <!-- Языки и фреймворки -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Языки & Фреймворки</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Languages & Frameworks</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">Java (JUnit5, Mockito)</span>
+                                <span class="skill-tag">Python (Pytest, Selenium)</span>
+                                <span class="skill-tag">Jacoco</span>
+                            </div>
+                        </div>
+
+                        <!-- Методологии -->
+                        <div class="skills-category">
+                            <h3 class="skills-category-title" data-lang="ru">Методологии</h3>
+                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Methodologies</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">Agile (Scrum)</span>
+                                <span class="skill-tag">TDD</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Секция "Обо мне" -->
+            <section id="about" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">03.</span>
+                        <span class="section-text" data-lang="ru">Обо мне</span>
+                        <span class="section-text" data-lang="en" style="display: none;">About</span>
+                    </h2>
+                    <div class="line"></div>
+                </div>
+                <div class="section-content">
+                    <p data-lang="ru">
+                        Middle QA-инженер с опытом полного цикла тестирования веб-приложений и API. Работал в командах до 20 человек по Scrum, участвовал в планировании, ретроспективах и релизах.
+                    </p>
+                    <p data-lang="ru">
+                        Специализируюсь на интеграционном и регрессионном тестировании, анализе логов, работе с SQL и документировании тестовой документации. Имею опыт автоматизации тестов на Java и Python.
+                    </p>
+                    <p data-lang="en" style="display: none;">
+                        Middle QA Engineer with experience in full-cycle testing of web applications and APIs. Worked in teams of up to 20 people using Scrum, participated in planning, retrospectives, and releases.
+                    </p>
+                    <p data-lang="en" style="display: none;">
+                        Specialized in integration and regression testing, log analysis, SQL, and test documentation. Have experience in test automation with Java and Python.
+                    </p>
                 </div>
             </section>
 
@@ -281,8 +320,8 @@
                     <div class="education-item">
                         <h3 class="education-title" data-lang="ru">ТУРУС — Кафедра инженерной и вычислительной техники</h3>
                         <h3 class="education-title" data-lang="en" style="display: none;">TURUS — Department of Engineering and Computer Science</h3>
-                        <p class="education-period" data-lang="ru">2023 — 2028 (ожидается)</p>
-                        <p class="education-period" data-lang="en" style="display: none;">2023 — 2028 (expected)</p>
+                        <p class="education-period" data-lang="ru">2023 — 2028</p>
+                        <p class="education-period" data-lang="en" style="display: none;">2023 — 2028</p>
                     </div>
                     <div class="education-item">
                         <h3 class="education-title" data-lang="ru">ГТНУ — Инженер в нефтегазовой отрасли</h3>
@@ -295,8 +334,8 @@
 
             <!-- Футер -->
             <footer class="footer">
-                <p class="footer-text" data-lang="ru">Сайт создан для портфолио на GitHub Pages</p>
-                <p class="footer-text" data-lang="en" style="display: none;">Website created for GitHub Pages portfolio</p>
+                <p class="footer-text" data-lang="ru">Спасибо за просмотр моего портфолио :)</p>
+                <p class="footer-text" data-lang="en" style="display: none;">Thank you for scrolling my portfolio :)</p>
             </footer>
         </main>
     </div>

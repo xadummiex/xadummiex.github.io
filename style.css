@@ -44,7 +44,7 @@ body {
 
 .header {
     margin-bottom: 3rem;
-    margin-top: calc(3.2rem - 15px);
+    margin-top: calc(3.2rem - 30px);
 }
 
 .profile-photo {

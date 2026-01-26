@@ -252,14 +252,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateActiveNavLink() {
-        const scrollPos = getScrollTop() + 150; // Отступ
+        const offset = 150;
+        const scrollPos = getScrollTop();
+        const adjustedScrollPos = scrollPos + offset;
+        const isContainerScroll = scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight;
+        const viewportHeight = isContainerScroll ? scrollContainer.clientHeight : window.innerHeight;
+        const scrollHeight = isContainerScroll ? scrollContainer.scrollHeight : document.documentElement.scrollHeight;
+        const nearBottom = scrollPos + viewportHeight >= scrollHeight - 5;
+
+        if (nearBottom) {
+            const lastSection = document.querySelector('section:last-of-type');
+            if (lastSection) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                const lastLink = document.querySelector(`.nav-link[href="#${lastSection.id}"]`);
+                if (lastLink) {
+                    lastLink.classList.add('active');
+                }
+            }
+            return;
+        }
 
         document.querySelectorAll('section').forEach(section => {
             const sectionTop = getSectionTop(section);
             const sectionHeight = section.clientHeight;
             const sectionId = section.id;
 
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            if (adjustedScrollPos >= sectionTop && adjustedScrollPos < sectionTop + sectionHeight) {
                 // Удаляем active у всех
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');

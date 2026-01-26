@@ -433,10 +433,20 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 /* Футер */
 .footer {
     padding-top: 2rem;
-    border-top: 1px solid #233554;
+    position: relative;
     text-align: center;
     color: #8892b0;
     font-size: 0.9rem;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 10rem;
+    height: 1px;
+    background-color: #233554;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -499,6 +509,10 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         margin-left: 0;
         margin-right: 0;
         margin-top: 0.5rem;
+    }
+
+    .footer::before {
+        right: 0;
     }
 
     .experience-row {

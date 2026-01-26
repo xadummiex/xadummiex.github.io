@@ -19,38 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function setElementDisplay(el, isVisible) {
+        if (el.tagName === 'A' && el.classList.contains('resume-btn')) {
+            el.style.display = isVisible ? 'inline-flex' : 'none';
+            return;
+        }
+
+        if (!isVisible) {
+            el.style.display = 'none';
+            return;
+        }
+
+        if (el.tagName === 'LI') {
+            el.style.display = 'list-item';
+            return;
+        }
+
+        el.style.display = 'block';
+    }
+
     function switchLanguage() {
         if (currentLang === 'ru') {
             // Переключаем на английский
-            ruElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'none';
-                }
-            });
-            enElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'block' || 'inline' || 'flex';
-                } else {
-                    el.style.display = 'inline-flex';
-                }
-            });
+            ruElements.forEach(el => setElementDisplay(el, false));
+            enElements.forEach(el => setElementDisplay(el, true));
             languageText.textContent = 'RU';
             document.documentElement.lang = 'en';
             currentLang = 'en';
         } else {
             // Переключаем на русский
-            enElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'none';
-                }
-            });
-            ruElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'block' || 'inline' || 'flex';
-                } else {
-                    el.style.display = 'inline-flex';
-                }
-            });
+            enElements.forEach(el => setElementDisplay(el, false));
+            ruElements.forEach(el => setElementDisplay(el, true));
             languageText.textContent = 'EN';
             document.documentElement.lang = 'ru';
             currentLang = 'ru';

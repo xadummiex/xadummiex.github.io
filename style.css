@@ -140,7 +140,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 /* Кнопка языка */
 .language-switcher-top {
     position: fixed;
-    top: 90px;
+    top: 110px;
     right: 100px;
     z-index: 1000;
     backdrop-filter: blur(5px); /* Добавьте эту строку */

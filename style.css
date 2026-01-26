@@ -44,7 +44,7 @@ body {
 
 .header {
     margin-bottom: 3rem;
-    margin-top: calc(3.2rem - 5px);
+    margin-top: calc(3.2rem - 15px);
 }
 
 .profile-photo {
@@ -141,7 +141,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 /* ===== ПРАВАЯ КОЛОНКА ===== */
 .main-content {
-    padding: calc(5rem - 5px) 6rem 3rem 1.5rem;
+    padding: calc(5rem - 15px) 6rem 3rem 1.5rem;
     overflow-y: auto;
     max-height: 100vh;
     width: 100%;

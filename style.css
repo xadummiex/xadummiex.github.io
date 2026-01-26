@@ -197,13 +197,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     font-weight: 400;
 }
 
-.line {
-    height: 1px;
-    background-color: #233554;
-    margin-left: 1rem;
-    width: calc(100% - 250px); /* ← Но не больше 40% */
-}
-
 /* Кнопка резюме */
 .resume-btn-container {
     margin-bottom: 3rem;
@@ -246,16 +239,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     background-color: #233554;
     align-self: center;
     margin-left: 0;
-}
-
-.line::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 10000px; /* ← ЗАКАНЧИВАЕТСЯ ЗА 40px ОТ ПРАВОГО КРАЯ .line */
-    height: 1px;
-    background-color: #233554;
-    top: 0;
+    margin-right: 10rem;
 }
 
 /* ===== ОПЫТ ===== */
@@ -513,6 +497,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     .line {
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
         margin-top: 0.5rem;
     }
 

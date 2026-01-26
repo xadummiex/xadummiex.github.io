@@ -47,6 +47,16 @@ body {
     margin-top: 3.2rem;
 }
 
+.profile-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 0%;
+    object-fit: cover;
+    border: 1px solid #64ffda;
+    box-shadow: 0 12px 24px rgba(2, 12, 27, 0.35);
+    margin-bottom: 1.25rem;
+}
+
 .name {
     font-size: 2rem;
     font-weight: 700;
@@ -140,7 +150,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 /* Кнопка языка */
 .language-switcher-top {
     position: fixed;
-    top: 90px;
+    top: 110px;
     right: 100px;
     z-index: 1000;
     backdrop-filter: blur(5px); /* Добавьте эту строку */
@@ -197,13 +207,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     font-weight: 400;
 }
 
-.line {
-    height: 1px;
-    background-color: #233554;
-    margin-left: 1rem;
-    width: calc(100% - 250px); /* ← Но не больше 40% */
-}
-
 /* Кнопка резюме */
 .resume-btn-container {
     margin-bottom: 3rem;
@@ -246,16 +249,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     background-color: #233554;
     align-self: center;
     margin-left: 0;
-}
-
-.line::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 10000px; /* ← ЗАКАНЧИВАЕТСЯ ЗА 40px ОТ ПРАВОГО КРАЯ .line */
-    height: 1px;
-    background-color: #233554;
-    top: 0;
+    margin-right: 10rem;
 }
 
 /* ===== ОПЫТ ===== */
@@ -449,10 +443,20 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 /* Футер */
 .footer {
     padding-top: 2rem;
-    border-top: 1px solid #233554;
+    position: relative;
     text-align: center;
     color: #8892b0;
     font-size: 0.9rem;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 10rem;
+    height: 1px;
+    background-color: #233554;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -497,6 +501,12 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 @media (max-width: 768px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
     .name {
         font-size: 1.75rem;
     }
@@ -513,7 +523,12 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     .line {
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
         margin-top: 0.5rem;
+    }
+
+    .footer::before {
+        right: 0;
     }
 
     .experience-row {
@@ -556,6 +571,11 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 @media (max-width: 480px) {
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
     .sidebar {
         padding: 1.25rem;
     }

@@ -19,38 +19,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function setElementDisplay(el, isVisible) {
+        if (el.tagName === 'A' && el.classList.contains('resume-btn')) {
+            el.style.display = isVisible ? 'inline-flex' : 'none';
+            return;
+        }
+
+        if (!isVisible) {
+            el.style.display = 'none';
+            return;
+        }
+
+        if (el.tagName === 'LI') {
+            el.style.display = 'list-item';
+            return;
+        }
+
+        el.style.display = 'block';
+    }
+
     function switchLanguage() {
         if (currentLang === 'ru') {
             // Переключаем на английский
-            ruElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'none';
-                }
-            });
-            enElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'block' || 'inline' || 'flex';
-                } else {
-                    el.style.display = 'inline-flex';
-                }
-            });
+            ruElements.forEach(el => setElementDisplay(el, false));
+            enElements.forEach(el => setElementDisplay(el, true));
             languageText.textContent = 'RU';
             document.documentElement.lang = 'en';
             currentLang = 'en';
         } else {
             // Переключаем на русский
-            enElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'none';
-                }
-            });
-            ruElements.forEach(el => {
-                if (el.tagName !== 'A' || !el.classList.contains('resume-btn')) {
-                    el.style.display = 'block' || 'inline' || 'flex';
-                } else {
-                    el.style.display = 'inline-flex';
-                }
-            });
+            enElements.forEach(el => setElementDisplay(el, false));
+            ruElements.forEach(el => setElementDisplay(el, true));
             languageText.textContent = 'EN';
             document.documentElement.lang = 'ru';
             currentLang = 'ru';
@@ -223,19 +222,64 @@ document.addEventListener('DOMContentLoaded', function() {
                     block: 'start'
                 });
             }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            this.classList.add('active');
         });
     });
 
     // ===== АКТИВНЫЕ ССЫЛКИ В НАВИГАЦИИ =====
+    const scrollContainer = document.querySelector('.main-content');
+
+    function getScrollTop() {
+        if (scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight) {
+            return scrollContainer.scrollTop;
+        }
+
+        return window.scrollY;
+    }
+
+    function getSectionTop(section) {
+        if (scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight) {
+            return section.offsetTop;
+        }
+
+        return section.getBoundingClientRect().top + window.scrollY;
+    }
+
     function updateActiveNavLink() {
-        const scrollPos = window.scrollY + 150; // Отступ
+        const offset = 150;
+        const scrollPos = getScrollTop();
+        const adjustedScrollPos = scrollPos + offset;
+        const isContainerScroll = scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight;
+        const viewportHeight = isContainerScroll ? scrollContainer.clientHeight : window.innerHeight;
+        const scrollHeight = isContainerScroll ? scrollContainer.scrollHeight : document.documentElement.scrollHeight;
+        const nearBottom = scrollPos + viewportHeight >= scrollHeight - 5;
+
+        if (nearBottom) {
+            const lastSection = document.querySelector('section:last-of-type');
+            if (lastSection) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                const lastLink = document.querySelector(`.nav-link[href="#${lastSection.id}"]`);
+                if (lastLink) {
+                    lastLink.classList.add('active');
+                }
+            }
+            return;
+        }
 
         document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop;
+            const sectionTop = getSectionTop(section);
             const sectionHeight = section.clientHeight;
             const sectionId = section.id;
 
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            if (adjustedScrollPos >= sectionTop && adjustedScrollPos < sectionTop + sectionHeight) {
                 // Удаляем active у всех
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
@@ -245,12 +289,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
-                    console.log(`Active: ${sectionId}`);
                 }
             }
         });
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', updateActiveNavLink);
+    }
+    window.addEventListener('resize', updateActiveNavLink);
     updateActiveNavLink();
 });

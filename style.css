@@ -47,6 +47,16 @@ body {
     margin-top: 3.2rem;
 }
 
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #64ffda;
+    box-shadow: 0 12px 24px rgba(2, 12, 27, 0.35);
+    margin-bottom: 1.25rem;
+}
+
 .name {
     font-size: 2rem;
     font-weight: 700;
@@ -491,6 +501,12 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 @media (max-width: 768px) {
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
     .name {
         font-size: 1.75rem;
     }
@@ -555,6 +571,11 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 @media (max-width: 480px) {
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
     .sidebar {
         padding: 1.25rem;
     }

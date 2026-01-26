@@ -2,11 +2,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА =====
     const languageSwitcher = document.getElementById('language-switcher');
     const languageText = languageSwitcher.querySelector('.language-text');
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeTextRu = themeSwitcher.querySelector('[data-lang="ru"]');
+    const themeTextEn = themeSwitcher.querySelector('[data-lang="en"]');
 
     const ruElements = document.querySelectorAll('[data-lang="ru"]');
     const enElements = document.querySelectorAll('[data-lang="en"]');
 
     let currentLang = 'ru';
+    let currentTheme = 'light';
+
+    function updateThemeText() {
+        if (currentTheme === 'light') {
+            themeTextRu.textContent = 'Тема: Светлая';
+            themeTextEn.textContent = 'Theme: Light';
+        } else {
+            themeTextRu.textContent = 'Тема: Тёмная';
+            themeTextEn.textContent = 'Theme: Dark';
+        }
+    }
+
+    function applyTheme(theme, persist = true) {
+        currentTheme = theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        themeSwitcher.classList.toggle('is-dark', theme === 'dark');
+        updateThemeText();
+
+        if (persist) {
+            localStorage.setItem('portfolioTheme', theme);
+        }
+    }
+
+    function toggleTheme() {
+        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(nextTheme);
+    }
 
     function updateResumeLink() {
         const resumeBtn = document.getElementById('resume-btn');
@@ -61,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     languageSwitcher.addEventListener('click', switchLanguage);
+    themeSwitcher.addEventListener('click', toggleTheme);
 
     // Проверяем сохранённый язык
     const savedLang = localStorage.getItem('portfolioLanguage');
@@ -69,6 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         updateResumeLink(); // Обновляем ссылку даже для русского
     }
+
+    const savedTheme = localStorage.getItem('portfolioTheme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'), false);
 
     // ===== АВТОМАТИЧЕСКИЙ РАСЧЁТ СТАЖА =====
     function calculateExperience(startDateStr, elementIdPrefix) {

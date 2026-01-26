@@ -223,15 +223,39 @@ document.addEventListener('DOMContentLoaded', function() {
                     block: 'start'
                 });
             }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            this.classList.add('active');
         });
     });
 
     // ===== АКТИВНЫЕ ССЫЛКИ В НАВИГАЦИИ =====
+    const scrollContainer = document.querySelector('.main-content');
+
+    function getScrollTop() {
+        if (scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight) {
+            return scrollContainer.scrollTop;
+        }
+
+        return window.scrollY;
+    }
+
+    function getSectionTop(section) {
+        if (scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight) {
+            return section.offsetTop;
+        }
+
+        return section.getBoundingClientRect().top + window.scrollY;
+    }
+
     function updateActiveNavLink() {
-        const scrollPos = window.scrollY + 150; // Отступ
+        const scrollPos = getScrollTop() + 150; // Отступ
 
         document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop;
+            const sectionTop = getSectionTop(section);
             const sectionHeight = section.clientHeight;
             const sectionId = section.id;
 
@@ -245,12 +269,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
-                    console.log(`Active: ${sectionId}`);
                 }
             }
         });
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', updateActiveNavLink);
+    }
+    window.addEventListener('resize', updateActiveNavLink);
     updateActiveNavLink();
 });

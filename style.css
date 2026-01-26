@@ -48,11 +48,11 @@ body {
 }
 
 .profile-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    border-radius: 0%;
     object-fit: cover;
-    border: 3px solid #64ffda;
+    border: 1px solid #64ffda;
     box-shadow: 0 12px 24px rgba(2, 12, 27, 0.35);
     margin-bottom: 1.25rem;
 }

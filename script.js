@@ -70,6 +70,45 @@ document.addEventListener('DOMContentLoaded', function() {
         updateResumeLink(); // Обновляем ссылку даже для русского
     }
 
+    // ===== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ =====
+    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeIcon = themeSwitcher.querySelector('i');
+    const themeStorageKey = 'theme';
+
+    function applyTheme(theme) {
+        const rootElement = document.documentElement;
+        rootElement.classList.remove('theme-dark', 'theme-light');
+        rootElement.classList.add(`theme-${theme}`);
+
+        if (theme === 'light') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            themeSwitcher.setAttribute('aria-label', 'Switch to dark theme');
+            themeSwitcher.setAttribute('title', 'Switch to dark theme');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            themeSwitcher.setAttribute('aria-label', 'Switch to light theme');
+            themeSwitcher.setAttribute('title', 'Switch to light theme');
+        }
+
+        localStorage.setItem(themeStorageKey, theme);
+    }
+
+    function toggleTheme() {
+        const isLight = document.documentElement.classList.contains('theme-light');
+        applyTheme(isLight ? 'dark' : 'light');
+    }
+
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+        applyTheme(savedTheme);
+    } else {
+        applyTheme('light');
+    }
+
+    themeSwitcher.addEventListener('click', toggleTheme);
+
     // ===== АВТОМАТИЧЕСКИЙ РАСЧЁТ СТАЖА =====
     function calculateExperience(startDateStr, elementIdPrefix) {
         const startDate = new Date(startDateStr);

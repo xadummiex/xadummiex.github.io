@@ -32,15 +32,15 @@ html.theme-dark {
 
 html.theme-light {
     color-scheme: light;
-    --bg: #ffffff;
-    --surface-1: #f7f7f8;
-    --surface-2: #f1f2f4;
-    --border: #e3e5e8;
+    --bg: #f2f1ed;
+    --surface-1: #f7f4ef;
+    --surface-2: #eeece7;
+    --border: #e1ddd6;
     --card-border: var(--border);
-    --text-strong: #111827;
-    --text: #374151;
-    --text-muted: #6b7280;
-    --icon-muted: #9ca3af;
+    --text-strong: #1f2937;
+    --text: #2f3a4a;
+    --text-muted: #5f6b7a;
+    --icon-muted: #8a95a3;
     --accent-500: #a98967;
     --accent-600: #876e52;
     --accent-500-rgb: 169 137 103;

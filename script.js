@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const savedTheme = localStorage.getItem(themeStorageKey);
-    if (savedTheme === 'light') {
-        applyTheme('light');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+        applyTheme(savedTheme);
     } else {
-        applyTheme('dark');
+        applyTheme('light');
     }
 
     themeSwitcher.addEventListener('click', toggleTheme);

@@ -57,6 +57,7 @@ html.theme-light {
 /* Базовые стили страницы */
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 15px;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;

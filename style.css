@@ -56,6 +56,7 @@ body {
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
+    transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 /* Основной контейнер с Grid */
@@ -75,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .sidebar-content {
@@ -187,6 +189,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     overflow-y: auto;
     max-height: 100vh;
     width: 100%;
+    transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 /* Кнопка языка */

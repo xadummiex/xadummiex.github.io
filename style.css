@@ -9,10 +9,52 @@ html {
     scroll-behavior: smooth;
 }
 
+html.theme-dark {
+    color-scheme: dark;
+    --bg: #0a192f;
+    --surface-1: #112240;
+    --surface-2: #233554;
+    --border: #233554;
+    --card-border: transparent;
+    --text-strong: #ffffff;
+    --text: #ccd6f6;
+    --text-muted: #8892b0;
+    --icon-muted: #ccd6f6;
+    --accent-500: #64ffda;
+    --accent-600: #64ffda;
+    --accent-500-rgb: 100 255 218;
+    --accent-soft-100: rgb(var(--accent-500-rgb) / 0.1);
+    --accent-soft-200: rgb(var(--accent-500-rgb) / 0.2);
+    --shadow-strong: 0 12px 24px rgba(2, 12, 27, 0.35);
+    --shadow-card: 0 8px 18px rgba(2, 12, 27, 0);
+    --focus-ring: 0 0 0 3px rgb(var(--accent-500-rgb) / 0.35);
+}
+
+html.theme-light {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface-1: #f7f7f8;
+    --surface-2: #f1f2f4;
+    --border: #e3e5e8;
+    --card-border: var(--border);
+    --text-strong: #111827;
+    --text: #374151;
+    --text-muted: #6b7280;
+    --icon-muted: #9ca3af;
+    --accent-500: #a98967;
+    --accent-600: #876e52;
+    --accent-500-rgb: 169 137 103;
+    --accent-soft-100: rgb(var(--accent-500-rgb) / 0.1);
+    --accent-soft-200: rgb(var(--accent-500-rgb) / 0.18);
+    --shadow-strong: 0 12px 24px rgba(17, 24, 39, 0.18);
+    --shadow-card: 0 10px 24px rgba(17, 24, 39, 0.12);
+    --focus-ring: 0 0 0 3px rgb(var(--accent-500-rgb) / 0.35);
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0a192f;
-    color: #ccd6f6;
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.6;
 }
 
@@ -25,7 +67,7 @@ body {
 
 /* ===== ЛЕВЫЙ САЙДБАР ===== */
 .sidebar {
-    background-color: #0a192f;
+    background-color: var(--bg);
     position: sticky;
     top: 0;
     height: 100vh;
@@ -52,15 +94,15 @@ body {
     height: 240px;
     border-radius: 5px;
     object-fit: cover;
-    border: 1px solid #64ffda;
-    box-shadow: 0 12px 24px rgba(2, 12, 27, 0.35);
+    border: 1px solid var(--accent-500);
+    box-shadow: var(--shadow-strong);
     margin-bottom: 1.25rem;
 }
 
 .name {
     font-size: 2rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-strong);
     margin-bottom: 0.5rem;
     line-height: 1.1;
 }
@@ -68,13 +110,13 @@ body {
 .title {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #64ffda;
+    color: var(--accent-500);
     margin-bottom: 1rem;
 }
 
 .tagline {
     font-size: 0.95rem;
-    color: #8892b0;
+    color: var(--text-muted);
     line-height: 1.5;
 }
 
@@ -94,7 +136,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #ccd6f6;
+    color: var(--text);
     font-size: 0.9rem;
     font-family: 'Fira Code', monospace;
     transition: color 0.3s ease;
@@ -102,16 +144,16 @@ body {
 }
 
 .nav-item .nav-link.active {
-    color: #64ffda !important;
+    color: var(--accent-500) !important;
 }
 
 /* Или ещё более специфичный: */
 aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
-    color: #64ffda !important;
+    color: var(--accent-500) !important;
 }
 
 .nav-number {
-    color: #64ffda;
+    color: var(--accent-500);
     margin-right: 0.75rem;
     font-size: 0.8rem;
 }
@@ -129,13 +171,13 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 .social-link {
-    color: #ccd6f6;
+    color: var(--icon-muted);
     font-size: 1.25rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-link:hover {
-    color: #64ffda;
+    color: var(--accent-500);
     transform: translateY(-3px);
 }
 
@@ -157,21 +199,58 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     -webkit-backdrop-filter: blur(5px); /* Для Safari */
 }
 
+.control-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
 .language-btn-top {
     background: transparent;
-    border: 1px solid #64ffda;
-    color: #64ffda;
+    border: 1px solid var(--accent-500);
+    color: var(--accent-500);
     font-family: 'Fira Code', monospace;
     font-size: 1.1rem;
     padding: 1.2rem 2.2rem;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #0a192f;
+    background-color: var(--bg);
 }
 
 .language-btn-top:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: var(--accent-soft-100);
+}
+
+.language-btn-top:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.theme-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid var(--accent-500);
+    background-color: var(--bg);
+    color: var(--accent-500);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: var(--accent-soft-100);
+    color: var(--accent-600);
+    border-color: var(--accent-600);
+}
+
+.theme-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
 }
 
 /* Секции */
@@ -195,13 +274,13 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     align-items: center;
     font-size: 1.75rem;
     font-weight: 700;
-    color: #ccd6f6;
+    color: var(--text);
     white-space: nowrap;
 }
 
 .section-number {
     font-family: 'Fira Code', monospace;
-    color: #64ffda;
+    color: var(--accent-500);
     font-size: 1.25rem;
     margin-right: 0.75rem;
     font-weight: 400;
@@ -216,9 +295,9 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: rgba(100, 255, 218, 0.1);
-    color: #64ffda;
-    border: 1px solid #64ffda;
+    background-color: var(--accent-soft-100);
+    color: var(--accent-500);
+    border: 1px solid var(--accent-500);
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
@@ -228,7 +307,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 }
 
 .resume-btn:hover {
-    background-color: rgba(100, 255, 218, 0.2);
+    background-color: var(--accent-soft-200);
     transform: translateY(-2px);
 }
 
@@ -246,7 +325,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     flex: 1;
     position: relative;
     height: 1px;
-    background-color: #233554;
+    background-color: var(--border);
     align-self: center;
     margin-left: 0;
     margin-right: 10rem;
@@ -273,7 +352,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     left: calc(150px + 2.5rem);
     right: 10rem;
     height: 1px;
-    background-color: #233554;
+    background-color: var(--border);
 }
 
 /* Левая колонка */
@@ -287,7 +366,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .experience-period-main {
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
-    color: #64ffda;
+    color: var(--accent-500);
     margin-bottom: 0.25rem;
     font-weight: 500;
     white-space: nowrap;
@@ -296,7 +375,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .experience-duration {
     font-family: 'Fira Code', monospace;
     font-size: 0.82rem;
-    color: #8892b0;
+    color: var(--text-muted);
     white-space: nowrap;
 }
 
@@ -308,7 +387,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 .experience-right h3 {
     font-size: 1.25rem;
-    color: #ccd6f6;
+    color: var(--text);
     font-weight: 600;
     margin: 0 0 0.5rem 0;
     text-align: left;
@@ -316,7 +395,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 .experience-subtitle {
     font-size: 1.1rem;
-    color: #8892b0;
+    color: var(--text-muted);
     margin-bottom: 1.2rem;
     font-style: italic;
     text-align: left;
@@ -330,7 +409,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .experience-list li {
     margin-bottom: 0.6rem;
     line-height: 1.6;
-    color: #8892b0;
+    color: var(--text-muted);
 }
 
 /* Теги технологий */
@@ -344,8 +423,8 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .tech-tag {
     font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
-    color: #64ffda;
-    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--accent-500);
+    background-color: var(--accent-soft-100);
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
 }
@@ -363,7 +442,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 .skills-category-title {
     font-size: 1.1rem;
-    color: #ccd6f6;
+    color: var(--text);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -377,17 +456,17 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .skill-tag {
     font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
-    color: #8892b0;
-    background-color: #112240;
+    color: var(--text-muted);
+    background-color: var(--surface-1);
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
-    border: 1px solid #233554;
+    border: 1px solid var(--border);
 }
 
 /* ===== ОБО МНЕ ===== */
 .section-content {
     font-size: 1.05rem;
-    color: #8892b0;
+    color: var(--text-muted);
     max-width: 700px;
 }
 
@@ -403,14 +482,14 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 .education-title {
     font-size: 1.2rem;
-    color: #ccd6f6;
+    color: var(--text);
     font-weight: 600;
     margin-bottom: 0.25rem;
 }
 
 .education-period {
     font-family: 'Fira Code', monospace;
-    color: #64ffda;
+    color: var(--accent-500);
     font-size: 0.9rem;
 }
 
@@ -418,9 +497,10 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .project-item {
     margin-bottom: 3rem;
     padding: 1.5rem;
-    background-color: #112240;
+    background-color: var(--surface-1);
     border-radius: 6px;
     transition: transform 0.3s ease;
+    box-shadow: var(--shadow-card), inset 0 0 0 1px var(--card-border);
 }
 
 .project-item:hover {
@@ -429,7 +509,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 
 .project-title {
     font-size: 1.25rem;
-    color: #ccd6f6;
+    color: var(--text);
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -437,7 +517,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
 .project-description {
     margin-bottom: 1.5rem;
     line-height: 1.7;
-    color: #8892b0;
+    color: var(--text-muted);
 }
 
 /* Футер */
@@ -445,7 +525,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     padding-top: 2rem;
     position: relative;
     text-align: center;
-    color: #8892b0;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
@@ -456,7 +536,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     left: 0;
     right: 10rem;
     height: 1px;
-    background-color: #233554;
+    background-color: var(--border);
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -468,7 +548,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     .sidebar {
         position: relative;
         height: auto;
-        border-bottom: 1px solid #233554;
+        border-bottom: 1px solid var(--border);
         padding: 1.5rem;
     }
 
@@ -541,7 +621,7 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         white-space: normal;
         min-width: auto;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid #233554;
+        border-bottom: 1px solid var(--border);
     }
 
     .experience-period-main,

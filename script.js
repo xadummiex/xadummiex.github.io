@@ -37,21 +37,32 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.display = 'block';
     }
 
+    function updateLanguageSwitcher() {
+        if (currentLang === 'ru') {
+            languageText.textContent = 'EN';
+            languageSwitcher.setAttribute('aria-label', 'Switch language to English');
+            languageSwitcher.setAttribute('title', 'Switch language to English');
+        } else {
+            languageText.textContent = 'RU';
+            languageSwitcher.setAttribute('aria-label', 'Переключить язык на русский');
+            languageSwitcher.setAttribute('title', 'Переключить язык на русский');
+        }
+    }
+
     function switchLanguage() {
         if (currentLang === 'ru') {
             ruElements.forEach(el => setElementDisplay(el, false));
             enElements.forEach(el => setElementDisplay(el, true));
-            languageText.textContent = 'RU';
             document.documentElement.lang = 'en';
             currentLang = 'en';
         } else {
             enElements.forEach(el => setElementDisplay(el, false));
             ruElements.forEach(el => setElementDisplay(el, true));
-            languageText.textContent = 'EN';
             document.documentElement.lang = 'ru';
             currentLang = 'ru';
         }
 
+        updateLanguageSwitcher();
         updateResumeLink();
         localStorage.setItem('portfolioLanguage', currentLang);
     }
@@ -63,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         switchLanguage();
     } else {
         updateResumeLink();
+        updateLanguageSwitcher();
     }
 
     const themeSwitcher = document.getElementById('theme-switcher');
@@ -76,11 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (theme === 'light') {
             themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+            themeIcon.classList.add('fa-star');
             themeSwitcher.setAttribute('aria-label', 'Switch to dark theme');
             themeSwitcher.setAttribute('title', 'Switch to dark theme');
         } else {
-            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.remove('fa-star');
             themeIcon.classList.add('fa-moon');
             themeSwitcher.setAttribute('aria-label', 'Switch to light theme');
             themeSwitcher.setAttribute('title', 'Switch to light theme');

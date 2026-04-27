@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spot the Difference — Erik Mursalimov</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="game.css" />
+    <script>
+        (function() {
+            var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            var l = localStorage.getItem('language') || 'ru';
+            document.documentElement.className = 'theme-' + t + ' lang-' + l;
+        })();
+    </script>
+</head>
+<body>
+
+<!-- ── Header ────────────────────────────────────────────── -->
+<header class="game-header">
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        <span data-lang="ru">Портфолио</span>
+        <span data-lang="en">Portfolio</span>
+    </a>
+
+    <div class="game-title-block">
+        <h1>
+            <span data-lang="ru">Найди отличия</span>
+            <span data-lang="en">Spot the Difference</span>
+        </h1>
+        <p class="game-subtitle">
+            <span data-lang="ru">До деплоя / После деплоя &nbsp;·&nbsp; Уровень 1</span>
+            <span data-lang="en">Design Mock / Prod Deploy &nbsp;·&nbsp; Level 1</span>
+        </p>
+    </div>
+
+    <div class="controls-right">
+        <button class="hint-btn" id="hint-btn">
+            <span data-lang="ru">Подсказка</span>
+            <span data-lang="en">Hint</span>
+            <span id="hint-count">(3)</span>
+        </button>
+        <button class="theme-btn-game" id="theme-btn" aria-label="Switch theme">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+</header>
+
+<!-- ── Counter ────────────────────────────────────────────── -->
+<div class="counter-bar">
+    <div class="counter-dots" id="counter-dots">
+        <div class="dot" data-dot="1"></div>
+        <div class="dot" data-dot="2"></div>
+        <div class="dot" data-dot="3"></div>
+        <div class="dot" data-dot="4"></div>
+        <div class="dot" data-dot="5"></div>
+        <div class="dot" data-dot="6"></div>
+        <div class="dot" data-dot="7"></div>
+        <div class="dot" data-dot="8"></div>
+        <div class="dot" data-dot="9"></div>
+        <div class="dot" data-dot="10"></div>
+    </div>
+    <div class="counter-text">
+        <span data-lang="ru">Найдено:</span>
+        <span data-lang="en">Found:</span>
+        <span id="found-count">0</span>/10
+    </div>
+</div>
+
+<!-- ── Panels ─────────────────────────────────────────────── -->
+<div class="panels-row">
+
+    <!-- Left: Design Mock -->
+    <div class="panel-col">
+        <span class="panel-label design">
+            <i class="fas fa-drafting-compass"></i>
+            <span data-lang="ru">Дизайн-макет</span>
+            <span data-lang="en">Design Mock</span>
+        </span>
+        <div class="panel-wrapper" id="panel-design">
+            <div class="panel-inner" id="inner-design">
+                <!-- Mini sidebar -->
+                <aside class="mini-sidebar">
+                    <div>
+                        <div class="mini-avatar">EM</div>
+                        <div class="mini-name">Erik Mursalimov</div>
+                        <div class="mini-title">QA Engineer</div>
+                    </div>
+                    <nav>
+                        <ul class="mini-nav">
+                            <li class="mini-nav-item mini-nav-active">
+                                <span class="mini-nav-number">01.</span>
+                                <span data-lang="ru">Опыт</span>
+                                <span data-lang="en">Experience</span>
+                            </li>
+                            <li class="mini-nav-item">
+                                <span class="mini-nav-number">02.</span>
+                                <span data-lang="ru">Навыки</span>
+                                <span data-lang="en">Skills</span>
+                            </li>
+                            <li class="mini-nav-item">
+                                <span class="mini-nav-number">03.</span>
+                                <span data-lang="ru">Обо мне</span>
+                                <span data-lang="en">About</span>
+                            </li>
+                            <li class="mini-nav-item mini-nav-education">
+                                <span class="mini-nav-number">04.</span>
+                                <span data-lang="ru">Образование</span>
+                                <span data-lang="en">Education</span>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="mini-social-links">
+                        <i class="fas fa-envelope"></i>
+                        <i class="fab fa-telegram mini-social-telegram"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github mini-github-icon"></i>
+                    </div>
+                </aside>
+                <!-- Mini main -->
+                <main class="mini-main">
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">01.</span>
+                            <span class="mini-section-title" data-lang="ru">Опыт</span>
+                            <span class="mini-section-title" data-lang="en">Experience</span>
+                            <div class="mini-line"></div>
+                        </div>
+                        <div class="mini-entry">
+                            <div class="mini-entry-title">Dunice (Natcar)</div>
+                            <div class="mini-entry-sub">QA Engineer</div>
+                            <div class="mini-entry-date">03/2023 — present</div>
+                        </div>
+                        <div class="mini-entry">
+                            <div class="mini-entry-title" data-lang="ru">Fastact (стартап)</div>
+                            <div class="mini-entry-title" data-lang="en">Fastact (startup)</div>
+                            <div class="mini-entry-sub">Part-time QA Engineer</div>
+                            <div class="mini-entry-date">09/2025 — present</div>
+                        </div>
+                    </div>
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">02.</span>
+                            <span class="mini-section-title" data-lang="ru">Навыки</span>
+                            <span class="mini-section-title" data-lang="en">Skills</span>
+                            <div class="mini-line mini-line-skills"></div>
+                        </div>
+                        <div class="mini-tags">
+                            <span class="mini-tag">Postman</span>
+                            <span class="mini-tag">Swagger</span>
+                            <span class="mini-tag">Cypress</span>
+                            <span class="mini-tag">Selenium</span>
+                            <span class="mini-tag">Java</span>
+                        </div>
+                    </div>
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">04.</span>
+                            <span class="mini-section-title" data-lang="ru">Образование</span>
+                            <span class="mini-section-title" data-lang="en">Education</span>
+                            <div class="mini-line"></div>
+                        </div>
+                        <div class="mini-education-content">
+                            <div class="mini-entry">
+                                <div class="mini-entry-title" data-lang="ru">ТУРУС — Инж. и вычислительная техника</div>
+                                <div class="mini-entry-title" data-lang="en">TURUS — Engineering & Computer Science</div>
+                                <div class="mini-entry-date">2023 — 2028</div>
+                            </div>
+                            <div class="mini-entry mini-education-2">
+                                <div class="mini-entry-title" data-lang="ru">ГТНУ — Нефтегазовая отрасль</div>
+                                <div class="mini-entry-title" data-lang="en">GTNU — Oil & Gas Engineering</div>
+                                <div class="mini-entry-date">2018 — 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right: Prod (buggy) -->
+    <div class="panel-col">
+        <span class="panel-label prod">
+            <i class="fas fa-bug"></i>
+            <span data-lang="ru">Что выкатили на прод</span>
+            <span data-lang="en">What Got Deployed</span>
+        </span>
+        <div class="panel-wrapper" id="panel-prod">
+            <div class="panel-inner buggy" id="inner-prod">
+                <!-- Mini sidebar -->
+                <aside class="mini-sidebar">
+                    <div>
+                        <div class="mini-avatar">EM</div>
+                        <div class="mini-name">Erik Mursalimov</div>
+                        <div class="mini-title">QA Engin</div>
+                    </div>
+                    <nav>
+                        <ul class="mini-nav">
+                            <li class="mini-nav-item mini-nav-active">
+                                <span class="mini-nav-number">01.</span>
+                                <span data-lang="ru">Опыт</span>
+                                <span data-lang="en">Experience</span>
+                            </li>
+                            <li class="mini-nav-item">
+                                <span class="mini-nav-number">02.</span>
+                                <span data-lang="ru">Навыки</span>
+                                <span data-lang="en">Skills</span>
+                            </li>
+                            <li class="mini-nav-item">
+                                <span class="mini-nav-number">03.</span>
+                                <span data-lang="ru">Обо мне</span>
+                                <span data-lang="en">About</span>
+                            </li>
+                            <li class="mini-nav-item mini-nav-education">
+                                <span class="mini-nav-number">04.</span>
+                                <span data-lang="ru">Образование</span>
+                                <span data-lang="en">Education</span>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="mini-social-links">
+                        <i class="fas fa-envelope"></i>
+                        <i class="fab fa-telegram mini-social-telegram"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github mini-github-icon"></i>
+                    </div>
+                </aside>
+                <!-- Mini main -->
+                <main class="mini-main">
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">01.</span>
+                            <span class="mini-section-title" data-lang="ru">Опыт</span>
+                            <span class="mini-section-title" data-lang="en">Experience</span>
+                            <div class="mini-line"></div>
+                        </div>
+                        <div class="mini-entry">
+                            <div class="mini-entry-title">Dunice (Natcar)</div>
+                            <div class="mini-entry-sub">QA Engineer</div>
+                            <div class="mini-entry-date">03/2023 — present</div>
+                        </div>
+                        <div class="mini-entry">
+                            <div class="mini-entry-title" data-lang="ru">Fastact (стартап)</div>
+                            <div class="mini-entry-title" data-lang="en">Fastact (startup)</div>
+                            <div class="mini-entry-sub">Part-time QA Engineer</div>
+                            <div class="mini-entry-date">09/2025 — present</div>
+                        </div>
+                    </div>
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">02.</span>
+                            <span class="mini-section-title" data-lang="ru">Навыки</span>
+                            <span class="mini-section-title" data-lang="en">Skills</span>
+                            <div class="mini-line mini-line-skills"></div>
+                        </div>
+                        <div class="mini-tags">
+                            <span class="mini-tag">Devtools</span>
+                            <span class="mini-tag">Swagger</span>
+                            <span class="mini-tag">Cypress</span>
+                            <span class="mini-tag">Selenium</span>
+                            <span class="mini-tag">Java</span>
+                        </div>
+                    </div>
+                    <div class="mini-section">
+                        <div class="mini-section-header">
+                            <span class="mini-section-number">04.</span>
+                            <span class="mini-section-title" data-lang="ru">Образование</span>
+                            <span class="mini-section-title" data-lang="en">Education</span>
+                            <div class="mini-line"></div>
+                        </div>
+                        <div class="mini-education-content">
+                            <div class="mini-entry">
+                                <div class="mini-entry-title" data-lang="ru">ТУРУС — Инж. и вычислительная техника</div>
+                                <div class="mini-entry-title" data-lang="en">TURUS — Engineering & Computer Science</div>
+                                <div class="mini-entry-date">2023 — 2028</div>
+                            </div>
+                            <div class="mini-entry mini-education-2">
+                                <div class="mini-entry-title" data-lang="ru">ГТНУ — Нефтегазовая отрасль</div>
+                                <div class="mini-entry-title" data-lang="en">GTNU — Oil & Gas Engineering</div>
+                                <div class="mini-entry-date">2018 — 2022</div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- ── Clickable diff zones — positioned by JS via getBoundingClientRect ── -->
+            <div class="diff-zone" data-diff="1"  data-hint-ru="Имя написано другим шрифтом"        data-hint-en="Name uses a different font"></div>
+            <div class="diff-zone" data-diff="2"  data-hint-ru="Должность обрезана"                 data-hint-en="Job title is cut off"></div>
+            <div class="diff-zone" data-diff="3"  data-hint-ru="Цвет акцента стал другим"           data-hint-en="Accent color has changed"></div>
+            <div class="diff-zone" data-diff="4"  data-hint-ru="Пропала иконка соцсети"             data-hint-en="A social icon disappeared"></div>
+            <div class="diff-zone" data-diff="5"  data-hint-ru="Неверный номер пункта меню"         data-hint-en="Nav item has wrong number"></div>
+            <div class="diff-zone" data-diff="6"  data-hint-ru="Аватар стал квадратным"             data-hint-en="Avatar became square"></div>
+            <div class="diff-zone" data-diff="7"  data-hint-ru="Пропал второй пункт образования"    data-hint-en="Second education entry is gone"></div>
+            <div class="diff-zone" data-diff="8"  data-hint-ru="Иконка GitHub заменена на другую"   data-hint-en="GitHub icon was swapped"></div>
+            <div class="diff-zone" data-diff="9"  data-hint-ru="Горизонтальная линия обрезана"      data-hint-en="Section divider line is shorter"></div>
+            <div class="diff-zone" data-diff="10" data-hint-ru="Активный пункт меню потерял цвет"   data-hint-en="Active nav item lost its color"></div>
+        </div>
+    </div>
+
+</div><!-- .panels-row -->
+
+<!-- ── Hint toast ──────────────────────────────────────────── -->
+<div class="hint-toast" id="hint-toast"></div>
+
+<!-- ── Victory overlay ────────────────────────────────────── -->
+<div class="victory-overlay" id="victory-overlay">
+    <div class="victory-card">
+        <div class="victory-emoji">🎉</div>
+        <h2>
+            <span data-lang="ru">Все <span style="color:var(--accent-500)">10</span> отличий найдены!</span>
+            <span data-lang="en">All <span style="color:var(--accent-500)">10</span> differences found!</span>
+        </h2>
+        <p class="victory-quote" data-lang="ru">
+            «Поздравляем — теперь ты тоже знаешь, как выглядит продакшн в пятницу вечером»
+        </p>
+        <p class="victory-quote" data-lang="en">
+            "Congratulations — now you know what production looks like on a Friday evening"
+        </p>
+        <div class="victory-btns">
+            <button class="btn-primary" id="restart-btn">
+                <span data-lang="ru">Сыграть ещё раз</span>
+                <span data-lang="en">Play again</span>
+            </button>
+            <a href="index.html" class="btn-secondary">
+                <span data-lang="ru">← Портфолио</span>
+                <span data-lang="en">← Portfolio</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+// ── Theme & language (mirrors index.html logic) ────────────
+
+const TOTAL = 10;
+const found = new Set();
+let hintsLeft = 3;
+let hintTimeout = null;
+
+function applyTheme(t) {
+    document.documentElement.classList.remove('theme-dark', 'theme-light');
+    document.documentElement.classList.add('theme-' + t);
+    document.getElementById('theme-icon').className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('theme', t);
+}
+
+function applyLanguage(lang) {
+    document.documentElement.classList.remove('lang-ru', 'lang-en');
+    document.documentElement.classList.add('lang-' + lang);
+    localStorage.setItem('language', lang);
+}
+
+(function init() {
+    const savedTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
+    const savedLang = localStorage.getItem('language') || 'ru';
+    applyLanguage(savedLang);
+})();
+
+document.getElementById('theme-btn').addEventListener('click', () => {
+    const current = document.documentElement.classList.contains('theme-dark') ? 'dark' : 'light';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// ── Scale panels to fit wrapper width ─────────────────────
+
+function scalePanels() {
+    ['panel-design', 'panel-prod'].forEach(id => {
+        const wrapper = document.getElementById(id);
+        const inner   = wrapper.querySelector('.panel-inner');
+        const scale   = wrapper.offsetWidth / 960;
+        inner.style.transform = `scale(${scale})`;
+    });
+    // Position zones after transform is applied
+    requestAnimationFrame(positionZones);
+}
+
+// ── Position diff zones via real element coordinates ──────
+
+function positionZones() {
+    const wrap = document.getElementById('panel-prod');
+    const inner = document.getElementById('inner-prod');
+    if (!wrap || !inner) return;
+
+    const wR = wrap.getBoundingClientRect();
+
+    // Generic: place zone over a DOM element with optional padding
+    function place(diff, el, padH, padV) {
+        const zone = document.querySelector('.diff-zone[data-diff="' + diff + '"]');
+        if (!zone || !el) return;
+        const r = el.getBoundingClientRect();
+        const ph = (padH === undefined) ? 6 : padH;
+        const pv = (padV === undefined) ? ph : padV;
+        zone.style.left   = Math.max(0, r.left - wR.left - ph) + 'px';
+        zone.style.top    = Math.max(0, r.top  - wR.top  - pv) + 'px';
+        zone.style.width  = (r.width  + ph * 2) + 'px';
+        zone.style.height = (r.height + pv * 2) + 'px';
+        zone.style.position = 'absolute'; // ensure absolute
+    }
+
+    place(1,  inner.querySelector('.mini-name'),  8, 5);
+    place(2,  inner.querySelector('.mini-title'), 6, 4);
+    // diff 3: target first tag chip — compact, precise zone
+    place(3,  inner.querySelector('.mini-tag'),   8, 6);
+
+    // diff 4: telegram gone — zone covers the gap between envelope and linkedin
+    (function() {
+        const env = inner.querySelector('.fa-envelope');
+        const lin = inner.querySelector('.fa-linkedin');
+        if (!env || !lin) return;
+        const eR = env.getBoundingClientRect();
+        const lR = lin.getBoundingClientRect();
+        const zone4 = document.querySelector('.diff-zone[data-diff="4"]');
+        if (!zone4) return;
+        // gap between envelope (right edge) and linkedin (left edge)
+        const gapLeft  = eR.right - wR.left - 2;
+        const gapWidth = Math.max(lR.left - eR.right + 4, 20);
+        zone4.style.position = 'absolute';
+        zone4.style.left   = gapLeft + 'px';
+        zone4.style.top    = (eR.top - wR.top - 8) + 'px';
+        zone4.style.width  = gapWidth + 'px';
+        zone4.style.height = (eR.height + 16) + 'px';
+    })();
+
+    place(5,  inner.querySelector('.mini-nav-education .mini-nav-number'), 5, 4);
+    place(6,  inner.querySelector('.mini-avatar'), 6, 6);
+
+    // diff 7: 2nd education entry hidden — zone in empty space after 1st entry
+    (function() {
+        const first = inner.querySelector('.mini-education-content .mini-entry:first-child');
+        const zone7 = document.querySelector('.diff-zone[data-diff="7"]');
+        if (!first || !zone7) return;
+        const r = first.getBoundingClientRect();
+        // cap width to roughly the entry title width, not full section width
+        const cappedW = Math.min(r.width * 0.7, 180);
+        zone7.style.position = 'absolute';
+        zone7.style.left   = (r.left   - wR.left - 4) + 'px';
+        zone7.style.top    = (r.bottom - wR.top  + 6) + 'px';
+        zone7.style.width  = cappedW + 'px';
+        zone7.style.height = Math.min(r.height * 0.7, 32) + 'px';
+    })();
+
+    place(8,  inner.querySelector('.mini-github-icon'), 8, 8);
+    place(9,  inner.querySelector('.mini-line-skills'), 8, 4);
+    place(10, inner.querySelector('.mini-nav-active'),  6, 4);
+}
+
+scalePanels();
+window.addEventListener('resize', scalePanels);
+
+// ── Diff-zone click handling ───────────────────────────────
+
+document.querySelectorAll('.diff-zone').forEach(zone => {
+    zone.addEventListener('click', () => {
+        const n = parseInt(zone.dataset.diff);
+
+        if (found.has(n)) {
+            // already found — wiggle
+            zone.classList.remove('wiggle');
+            void zone.offsetWidth; // reflow
+            zone.classList.add('wiggle');
+            zone.addEventListener('animationend', () => zone.classList.remove('wiggle'), { once: true });
+            return;
+        }
+
+        // mark found
+        found.add(n);
+        zone.classList.add('found', 'pulse');
+        zone.addEventListener('animationend', () => zone.classList.remove('pulse'), { once: true });
+
+        // update dot
+        const dot = document.querySelector(`.dot[data-dot="${n}"]`);
+        if (dot) dot.classList.add('found');
+
+        // update counter
+        document.getElementById('found-count').textContent = found.size;
+
+        if (found.size === TOTAL) {
+            setTimeout(() => {
+                document.getElementById('victory-overlay').classList.add('show');
+            }, 600);
+        }
+    });
+});
+
+// ── Hint system ────────────────────────────────────────────
+
+const hintBtn = document.getElementById('hint-btn');
+const hintToast = document.getElementById('hint-toast');
+const hintCountEl = document.getElementById('hint-count');
+
+function showHint() {
+    if (hintsLeft <= 0) return;
+
+    // pick a random unfound diff
+    const unfound = [];
+    document.querySelectorAll('.diff-zone').forEach(z => {
+        if (!found.has(parseInt(z.dataset.diff))) unfound.push(z);
+    });
+    if (!unfound.length) return;
+
+    const zone = unfound[Math.floor(Math.random() * unfound.length)];
+    const isRu = document.documentElement.classList.contains('lang-ru');
+    const msg = isRu ? zone.dataset.hintRu : zone.dataset.hintEn;
+
+    // flash zone briefly
+    zone.style.border = '2px solid var(--accent-500)';
+    zone.style.background = 'rgba(100,255,218,0.12)';
+    setTimeout(() => {
+        zone.style.border = '';
+        zone.style.background = '';
+    }, 1800);
+
+    // show toast
+    hintToast.textContent = (isRu ? '💡 Подсказка: ' : '💡 Hint: ') + msg;
+    hintToast.classList.add('show');
+    clearTimeout(hintTimeout);
+    hintTimeout = setTimeout(() => hintToast.classList.remove('show'), 3500);
+
+    hintsLeft--;
+    hintCountEl.textContent = `(${hintsLeft})`;
+    if (hintsLeft <= 0) hintBtn.disabled = true;
+}
+
+hintBtn.addEventListener('click', showHint);
+
+// ── Restart ────────────────────────────────────────────────
+
+document.getElementById('restart-btn').addEventListener('click', () => {
+    found.clear();
+    hintsLeft = 3;
+    hintCountEl.textContent = '(3)';
+    hintBtn.disabled = false;
+
+    document.querySelectorAll('.diff-zone').forEach(z => {
+        z.classList.remove('found', 'pulse', 'wiggle');
+        z.style.border = '';
+        z.style.background = '';
+    });
+    document.querySelectorAll('.dot').forEach(d => d.classList.remove('found'));
+    document.getElementById('found-count').textContent = '0';
+    document.getElementById('victory-overlay').classList.remove('show');
+});
+</script>
+</body>
+</html>

@@ -1,16 +1,13 @@
-/* Сброс базовых стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Плавный скролл */
 html {
     scroll-behavior: smooth;
 }
 
-/* Темная тема переменные */
 html.theme-dark {
     color-scheme: dark;
     --bg: #0a192f;
@@ -32,7 +29,6 @@ html.theme-dark {
     --focus-ring: 0 0 0 3px rgb(var(--accent-500-rgb) / 0.35);
 }
 
-/* Светлая тема переменные */
 html.theme-light {
     color-scheme: light;
     --bg: #f2f1ed;
@@ -54,7 +50,10 @@ html.theme-light {
     --focus-ring: 0 0 0 3px rgb(var(--accent-500-rgb) / 0.35);
 }
 
-/* Базовые стили страницы */
+/* Language visibility — toggled via html.lang-ru / html.lang-en classes */
+html.lang-ru [data-lang="en"] { display: none; }
+html.lang-en [data-lang="ru"] { display: none; }
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
@@ -63,14 +62,12 @@ body {
     transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Сетка основного контейнера */
 .container {
     display: grid;
     grid-template-columns: minmax(260px, 1fr) 3fr;
     min-height: 100vh;
 }
 
-/* Стили сайдбара */
 .sidebar {
     background-color: var(--bg);
     position: sticky;
@@ -83,7 +80,6 @@ body {
     transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Контент сайдбара */
 .sidebar-content {
     display: flex;
     flex-direction: column;
@@ -91,13 +87,11 @@ body {
     justify-content: center;
 }
 
-/* Отступы шапки */
 .header {
     margin-bottom: 3rem;
-    margin-top: calc(3.2rem - 30px);
+    margin-top: 1.5rem;
 }
 
-/* Фото профиля */
 .profile-photo {
     width: 240px;
     height: 240px;
@@ -108,7 +102,6 @@ body {
     margin-bottom: 1.25rem;
 }
 
-/* Имя пользователя */
 .name {
     font-size: 2rem;
     font-weight: 700;
@@ -117,7 +110,6 @@ body {
     line-height: 1.1;
 }
 
-/* Заголовок роли */
 .title {
     font-size: 1.25rem;
     font-weight: 500;
@@ -125,29 +117,24 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Подзаголовок описания */
 .tagline {
     font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.5;
 }
 
-/* Обертка навигации */
 .navigation {
     margin-bottom: auto;
 }
 
-/* Список навигации */
 .nav-list {
     list-style: none;
 }
 
-/* Пункт навигации */
 .nav-item {
     margin-bottom: 1.5rem;
 }
 
-/* Ссылка навигации */
 .nav-link {
     display: flex;
     align-items: center;
@@ -159,24 +146,42 @@ body {
     padding: 0.5rem 0;
 }
 
-/* Активная ссылка навигации */
-.nav-item .nav-link.active {
-    color: var(--accent-500) !important;
+.nav-link:hover {
+    color: var(--text-strong);
 }
 
-/* Специфичная активная ссылка */
-aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
-    color: var(--accent-500) !important;
+.nav-link.active {
+    color: var(--accent-500);
 }
 
-/* Номер пункта меню */
 .nav-number {
     color: var(--accent-500);
     margin-right: 0.75rem;
     font-size: 0.8rem;
 }
 
-/* Нижний блок сайдбара */
+.games-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--accent-soft-100);
+    color: var(--accent-500);
+    border: 1px solid var(--accent-500);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    margin-top: 2rem;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+}
+
+.games-btn:hover {
+    background-color: var(--accent-soft-200);
+    transform: translateY(-2px);
+}
+
 .sidebar-bottom {
     display: flex;
     flex-direction: column;
@@ -184,35 +189,30 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     margin-top: 2rem;
 }
 
-/* Ссылки соцсетей */
 .social-links {
     display: flex;
     gap: 1.25rem;
 }
 
-/* Иконка соцсети */
 .social-link {
     color: var(--icon-muted);
     font-size: 1.25rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Ховер соцссылки */
 .social-link:hover {
     color: var(--accent-500);
     transform: translateY(-3px);
 }
 
-/* Основной контент */
 .main-content {
-    padding: calc(5rem - 15px) 6rem 3rem 1.5rem;
+    padding: 4rem 6rem 3rem 1.5rem;
     overflow-y: auto;
     max-height: 100vh;
     width: 100%;
     transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Блок переключателей */
 .language-switcher-top {
     position: fixed;
     top: 54px;
@@ -222,7 +222,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     -webkit-backdrop-filter: blur(5px);
 }
 
-/* Стек кнопок */
 .control-stack {
     display: flex;
     flex-direction: row;
@@ -230,7 +229,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     gap: 0.75rem;
 }
 
-/* Кнопка языка */
 .language-btn-top {
     display: inline-flex;
     align-items: center;
@@ -248,18 +246,15 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     background-color: var(--bg);
 }
 
-/* Ховер кнопки языка */
 .language-btn-top:hover {
     background-color: var(--accent-soft-100);
 }
 
-/* Фокус кнопки языка */
 .language-btn-top:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
 }
 
-/* Кнопка темы */
 .theme-btn {
     width: 48px;
     height: 48px;
@@ -274,38 +269,32 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Ховер кнопки темы */
 .theme-btn:hover {
     background-color: var(--accent-soft-100);
     color: var(--accent-600);
     border-color: var(--accent-600);
 }
 
-/* Фокус кнопки темы */
 .theme-btn:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring);
 }
 
-/* Секция контента */
 .section {
     margin-bottom: 5rem;
     max-width: 100%;
 }
 
-/* Последняя секция */
 .section:last-of-type {
     margin-bottom: 3rem;
 }
 
-/* Заголовок секции */
 .section-header {
     display: flex;
     align-items: center;
     margin-bottom: 2.5rem;
 }
 
-/* Заголовок секции текста */
 .section-title {
     display: flex;
     align-items: center;
@@ -317,7 +306,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     margin-right: 20px;
 }
 
-/* Номер секции */
 .section-number {
     font-family: 'Fira Code', monospace;
     color: var(--accent-500);
@@ -326,12 +314,10 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     font-weight: 400;
 }
 
-/* Контейнер кнопки резюме */
 .resume-btn-container {
     margin-bottom: 3rem;
 }
 
-/* Кнопка резюме */
 .resume-btn {
     display: inline-flex;
     align-items: center;
@@ -347,29 +333,23 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     transition: all 0.3s ease;
 }
 
-/* Ховер кнопки резюме */
 .resume-btn:hover {
     background-color: var(--accent-soft-200);
     transform: translateY(-2px);
 }
 
-/* Разделительная линия */
 .line {
     flex: 1;
-    position: relative;
     height: 1px;
     background-color: var(--border);
     align-self: center;
-    margin-left: 0;
     margin-right: 10rem;
 }
 
-/* Контейнер опыта */
 .experience-container {
     max-width: 100%;
 }
 
-/* Строка опыта */
 .experience-row {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -377,20 +357,27 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     margin-bottom: 3.5rem;
     position: relative;
     align-items: start;
+    border-radius: 6px;
+    transition: background-color 0.25s ease;
+    padding: 0.75rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
 }
 
-/* Разделитель опыта */
+.experience-row:hover {
+    background-color: var(--accent-soft-100);
+}
+
 .experience-row:not(:last-child)::after {
     content: '';
     position: absolute;
-    bottom: -1.75rem;
-    left: calc(150px + 2.5rem);
-    right: 10rem;
+    bottom: calc(-1.75rem + 0.75rem);
+    left: calc(150px + 2.5rem + 0.75rem);
+    right: calc(10rem + 0.75rem);
     height: 1px;
     background-color: var(--border);
 }
 
-/* Левая колонка опыта */
 .experience-left {
     text-align: right;
     padding-top: 0.2rem;
@@ -398,7 +385,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     white-space: nowrap;
 }
 
-/* Период опыта */
 .experience-period-main {
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
@@ -408,7 +394,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     white-space: nowrap;
 }
 
-/* Длительность опыта */
 .experience-duration {
     font-family: 'Fira Code', monospace;
     font-size: 0.82rem;
@@ -416,22 +401,24 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     white-space: nowrap;
 }
 
-/* Правая колонка опыта */
 .experience-right {
     max-width: none;
     padding-right: 2rem;
 }
 
-/* Заголовок опыта */
 .experience-right h3 {
     font-size: 1.25rem;
     color: var(--text);
     font-weight: 600;
     margin: 0 0 0.5rem 0;
     text-align: left;
+    transition: color 0.25s ease;
 }
 
-/* Подзаголовок опыта */
+.experience-row:hover .experience-right h3 {
+    color: var(--accent-500);
+}
+
 .experience-subtitle {
     font-size: 1.1rem;
     color: var(--text-muted);
@@ -440,20 +427,17 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     text-align: left;
 }
 
-/* Список обязанностей */
 .experience-list {
     margin: 0 0 1.5rem 1.25rem;
     text-align: left;
 }
 
-/* Пункт обязанностей */
 .experience-list li {
     margin-bottom: 0.6rem;
     line-height: 1.6;
     color: var(--text-muted);
 }
 
-/* Контейнер технологий */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -461,7 +445,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     margin-top: 1.25rem;
 }
 
-/* Тег технологии */
 .tech-tag {
     font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
@@ -471,19 +454,16 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     border-radius: 4px;
 }
 
-/* Сетка навыков */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
 }
 
-/* Блок категории навыков */
 .skills-category {
     margin-bottom: 0.5rem;
 }
 
-/* Заголовок категории */
 .skills-category-title {
     font-size: 1.1rem;
     color: var(--text);
@@ -491,14 +471,12 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     font-weight: 600;
 }
 
-/* Список навыков */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
 }
 
-/* Тег навыка */
 .skill-tag {
     font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
@@ -509,25 +487,21 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     border: 1px solid var(--border);
 }
 
-/* Контент секции */
 .section-content {
     font-size: 1.05rem;
     color: var(--text-muted);
     max-width: 700px;
 }
 
-/* Абзац секции */
 .section-content p {
     margin-bottom: 1.25rem;
     line-height: 1.7;
 }
 
-/* Карточка образования */
 .education-item {
     margin-bottom: 2rem;
 }
 
-/* Заголовок образования */
 .education-title {
     font-size: 1.2rem;
     color: var(--text);
@@ -535,44 +509,12 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     margin-bottom: 0.25rem;
 }
 
-/* Период образования */
 .education-period {
     font-family: 'Fira Code', monospace;
     color: var(--accent-500);
     font-size: 0.9rem;
 }
 
-/* Карточка проекта */
-.project-item {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    background-color: var(--surface-1);
-    border-radius: 6px;
-    transition: transform 0.3s ease;
-    box-shadow: var(--shadow-card), inset 0 0 0 1px var(--card-border);
-}
-
-/* Ховер карточки */
-.project-item:hover {
-    transform: translateY(-5px);
-}
-
-/* Заголовок проекта */
-.project-title {
-    font-size: 1.25rem;
-    color: var(--text);
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-/* Описание проекта */
-.project-description {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-}
-
-/* Футер страницы */
 .footer {
     padding-top: 2rem;
     position: relative;
@@ -581,7 +523,6 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     font-size: 0.9rem;
 }
 
-/* Линия над футером */
 .footer::before {
     content: '';
     position: absolute;
@@ -592,14 +533,11 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
     background-color: var(--border);
 }
 
-/* Брейкпоинт 1024px */
 @media (max-width: 1024px) {
-    /* Колонки на мобильном */
     .container {
         grid-template-columns: 1fr;
     }
 
-    /* Сайдбар адаптив */
     .sidebar {
         position: relative;
         height: auto;
@@ -607,19 +545,16 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         padding: 1.5rem;
     }
 
-    /* Контент адаптив */
     .main-content {
         padding: 3rem 2rem;
         max-height: none;
     }
 
-    /* Шапка адаптив */
     .header {
         margin-bottom: 2rem;
         margin-top: 0;
     }
 
-    /* Нижний блок адаптив */
     .sidebar-bottom {
         flex-direction: row;
         justify-content: space-between;
@@ -627,45 +562,37 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         margin-top: 1.5rem;
     }
 
-    /* Переключатель адаптив */
     .language-switcher-top {
         position: absolute;
         top: 20px;
         right: 20px;
     }
 
-    /* Сетка навыков адаптив */
     .skills-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* Брейкпоинт 768px */
 @media (max-width: 768px) {
-    /* Фото компактное */
     .profile-photo {
         width: 120px;
         height: 120px;
         margin-bottom: 1rem;
     }
 
-    /* Имя компактное */
     .name {
         font-size: 1.75rem;
     }
 
-    /* Контент компактный */
     .main-content {
         padding: 2rem 1.5rem;
     }
 
-    /* Заголовок компактный */
     .section-header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    /* Линия компактная */
     .line {
         width: 100%;
         margin-left: 0;
@@ -673,18 +600,18 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         margin-top: 0.5rem;
     }
 
-    /* Линия футера */
     .footer::before {
         right: 0;
     }
 
-    /* Опыт в столбик */
     .experience-row {
         grid-template-columns: 1fr;
         gap: 1rem;
+        padding: 0.75rem;
+        margin-left: -0.75rem;
+        margin-right: -0.75rem;
     }
 
-    /* Левая колонка компакт */
     .experience-left {
         text-align: left;
         white-space: normal;
@@ -693,76 +620,62 @@ aside .sidebar .navigation .nav-list .nav-item .nav-link.active {
         border-bottom: 1px solid var(--border);
     }
 
-    /* Текст опыта компакт */
     .experience-period-main,
     .experience-duration {
         white-space: normal;
         font-size: 0.9rem;
     }
 
-    /* Правая колонка компакт */
     .experience-right {
         padding-right: 0;
     }
 
-    /* Разделитель опыта */
     .experience-row:not(:last-child)::after {
-        left: 0;
-        right: 0;
+        left: 0.75rem;
+        right: 0.75rem;
     }
 
-    /* Переключатель компакт */
     .language-switcher-top {
         top: 15px;
         right: 15px;
     }
 
-    /* Кнопка языка компакт */
     .language-btn-top {
         padding: 0.5rem 1rem;
         font-size: 0.85rem;
     }
 }
 
-/* Брейкпоинт 480px */
 @media (max-width: 480px) {
-    /* Фото мини */
     .profile-photo {
         width: 100px;
         height: 100px;
     }
 
-    /* Сайдбар мини */
     .sidebar {
         padding: 1.25rem;
     }
 
-    /* Имя мини */
     .name {
         font-size: 1.5rem;
     }
 
-    /* Роль мини */
     .title {
         font-size: 1.1rem;
     }
 
-    /* Заголовок секции */
     .section-title {
         font-size: 1.5rem;
     }
 
-    /* Соцсети компакт */
     .social-links {
         gap: 1rem;
     }
 
-    /* Теги технологии */
     .tech-tags {
         gap: 0.5rem;
     }
 
-    /* Список навыков */
     .skills-list {
         gap: 0.5rem;
     }

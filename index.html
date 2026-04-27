@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru" dir="ltr" class="theme-light">
+<html lang="ru" dir="ltr" class="theme-light lang-ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Эрик Мурсалимов — Middle QA Engineer. Ручное, авто, API и интеграционное тестирование. Портфолио и резюме.">
     <title>Эрик Мурсалимов | QA Engineer</title>
+    <link rel="icon" type="image/png" href="my_photo.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,68 +14,70 @@
 </head>
 <body>
     <div class="container">
-        
+
         <aside class="sidebar">
             <div class="sidebar-content">
-                
+
                 <header class="header">
                     <img class="profile-photo" src="my_photo.png" alt="Фото Эрика Мурсалимова">
                     <h1 class="name" data-lang="ru">Эрик Мурсалимов</h1>
-                    <h1 class="name" data-lang="en" style="display: none;">Erik Mursalimov</h1>
+                    <h1 class="name" data-lang="en">Erik Mursalimov</h1>
                     <h2 class="title">QA Engineer</h2>
                     <p class="tagline" data-lang="ru">Ручное, авто, API, интеграционное тестирование</p>
-                    <p class="tagline" data-lang="en" style="display: none;">Manual, Auto, API, Integration Testing</p>
+                    <p class="tagline" data-lang="en">Manual, Auto, API, Integration Testing</p>
                 </header>
 
-                
                 <nav class="navigation">
                     <ol class="nav-list">
                         <li class="nav-item">
                             <a href="#experience" class="nav-link">
                                 <span class="nav-number">01.</span>
                                 <span class="nav-text" data-lang="ru">Опыт</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">Experience</span>
+                                <span class="nav-text" data-lang="en">Experience</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#skills" class="nav-link">
                                 <span class="nav-number">02.</span>
                                 <span class="nav-text" data-lang="ru">Навыки</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">Skills</span>
+                                <span class="nav-text" data-lang="en">Skills</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#about" class="nav-link">
                                 <span class="nav-number">03.</span>
                                 <span class="nav-text" data-lang="ru">Обо мне</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">About</span>
+                                <span class="nav-text" data-lang="en">About</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#education" class="nav-link">
                                 <span class="nav-number">04.</span>
                                 <span class="nav-text" data-lang="ru">Образование</span>
-                                <span class="nav-text" data-lang="en" style="display: none;">Education</span>
+                                <span class="nav-text" data-lang="en">Education</span>
                             </a>
                         </li>
                     </ol>
                 </nav>
 
-                
-                <div class="sidebar-bottom">
+                <a href="game.html" class="games-btn">
+                    <i class="fas fa-gamepad"></i>
+                    <span data-lang="ru">Игры</span>
+                    <span data-lang="en">Games</span>
+                </a>
 
-                    
+                <div class="sidebar-bottom">
                     <div class="social-links">
                         <a href="mailto:erik.mursalimov@mail.ru" aria-label="Email" class="social-link">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://t.me/favoran" target="_blank" aria-label="Telegram" class="social-link">
+                        <a href="https://t.me/favoran" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="social-link">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/xadummiex" target="_blank" aria-label="GitHub" class="social-link">
+                        <a href="https://github.com/xadummiex" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -81,9 +85,8 @@
             </div>
         </aside>
 
-        
         <main class="main-content">
-            
+
             <div class="language-switcher-top control-stack">
                 <button id="language-switcher" class="language-btn-top" aria-label="Switch language">
                     <span class="language-text">EN</span>
@@ -92,138 +95,129 @@
                     <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
             </div>
-            
+
             <section id="experience" class="section">
-    <div class="section-header">
-        <h2 class="section-title">
-            <span class="section-number">01.</span>
-            <span class="section-text" data-lang="ru">Опыт</span>
-            <span class="section-text" data-lang="en" style="display: none;">Experience</span>
-        </h2>
-        <div class="line"></div>
-    </div>
-
-    <div class="resume-btn-container">
-        <a id="resume-btn" class="resume-btn" target="_blank"
-           href="Mursalimov_cv_ru.pdf"
-           data-href-ru="Mursalimov_cv_ru.pdf"
-           data-href-en="Mursalimov_cv_en.pdf">
-            <i class="fas fa-download"></i>
-            <span data-lang="ru">Полное резюме (PDF)</span>
-            <span data-lang="en" style="display: none;">Full Resume (PDF)</span>
-        </a>
-    </div>
-
-    <div class="experience-container">
-        
-        <div class="experience-row">
-            <div class="experience-left">
-                <div class="experience-period-main" data-lang="ru">03/2023 — present</div>
-                <div class="experience-period-main" data-lang="en" style="display: none;">03/2023 — present</div>
-                <div class="experience-duration" data-start-date="2023-03-01" data-lang="ru">2 года 10 месяцев</div>
-                <div class="experience-duration" data-start-date="2023-03-01" data-lang="en" style="display: none;">2 years 10 months</div>
-            </div>
-            <div class="experience-right">
-                <h3 class="experience-title" data-lang="ru">Dunice (Natcar)</h3>
-                <h3 class="experience-title" data-lang="en" style="display: none;">Dunice (Natcar)</h3>
-                <p class="experience-subtitle" data-lang="ru">QA Engineer</p>
-                <p class="experience-subtitle" data-lang="en" style="display: none;">QA Engineer</p>
-                <ul class="experience-list">
-                    <li data-lang="ru">Полный цикл тестирования бэкенда и фронтенда, включая API и интеграции</li>
-                    <li data-lang="ru">Протестировал интеграцию с логистической системой Cargorun, выявив 30+ багов</li>
-                    <li data-lang="ru">Настроил виртуальные среды для тестирования, обеспечив 100% покрытие кейсами</li>
-                    <li data-lang="en" style="display: none;">Full-cycle testing of backend and frontend, including API and integrations</li>
-                    <li data-lang="en" style="display: none;">Tested integration with Cargorun logistics system, identifying 30+ bugs</li>
-                    <li data-lang="en" style="display: none;">Set up virtual environments for testing, ensuring 100% case coverage</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Postman</span>
-                    <span class="tech-tag">Swagger</span>
-                    <span class="tech-tag">Zephyr</span>
-                    <span class="tech-tag">Kibana</span>
-                    <span class="tech-tag">PostgreSQL</span>
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-number">01.</span>
+                        <span class="section-text" data-lang="ru">Опыт</span>
+                        <span class="section-text" data-lang="en">Experience</span>
+                    </h2>
+                    <div class="line"></div>
                 </div>
-            </div>
-        </div>
 
-        
-        <div class="experience-row">
-            <div class="experience-left">
-                <div class="experience-period-main" data-lang="ru">09/2025 — present</div>
-                <div class="experience-period-main" data-lang="en" style="display: none;">09/2025 — present</div>
-                <div class="experience-duration" data-start-date="2025-09-01" data-lang="ru">2 месяца</div>
-                <div class="experience-duration" data-start-date="2025-09-01" data-lang="en" style="display: none;">2 months</div>
-            </div>
-            <div class="experience-right">
-                <h3 class="experience-title" data-lang="ru">Fastact (стартап)</h3>
-                <h3 class="experience-title" data-lang="en" style="display: none;">Fastact (startup)</h3>
-                <p class="experience-subtitle" data-lang="ru">Part-time QA Engineer</p>
-                <p class="experience-subtitle" data-lang="en" style="display: none;">Part-time QA Engineer</p>
-                <ul class="experience-list">
-                    <li data-lang="ru">Разработка и поддержка автоматизированных тестов на Java для бэкенда</li>
-                    <li data-lang="ru">Покрытие пользовательских сценариев через мануальное тестирование</li>
-                    <li data-lang="ru">Покрыл значительную часть бизнес-логики автотестами (coverage >80%)</li>
-                    <li data-lang="en" style="display: none;">Development and maintenance of automated Java tests for backend</li>
-                    <li data-lang="en" style="display: none;">Coverage of user scenarios through manual testing</li>
-                    <li data-lang="en" style="display: none;">Covered a significant part of business logic with autotests (coverage >80%)</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Java</span>
-                    <span class="tech-tag">JUnit5</span>
-                    <span class="tech-tag">Postman</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Kafka</span>
+                <div class="resume-btn-container">
+                    <a id="resume-btn" class="resume-btn" target="_blank"
+                       href="Mursalimov_cv_ru.pdf"
+                       data-href-ru="Mursalimov_cv_ru.pdf"
+                       data-href-en="Mursalimov_cv_en.pdf">
+                        <i class="fas fa-download"></i>
+                        <span data-lang="ru">Полное резюме (PDF)</span>
+                        <span data-lang="en">Full Resume (PDF)</span>
+                    </a>
                 </div>
-            </div>
-        </div>
 
-        
-        <div class="experience-row">
-            <div class="experience-left">
-                <div class="experience-period-main">05/2021 — 03/2023</div>
-                <div class="experience-duration" data-lang="ru">1 год 11 месяцев</div>
-                <div class="experience-duration" data-lang="en" style="display: none;">1 year 11 months</div>
-            </div>
-            <div class="experience-right">
-                <h3 class="experience-title" data-lang="ru">SMENA</h3>
-                <h3 class="experience-title" data-lang="en" style="display: none;">SMENA</h3>
-                <p class="experience-subtitle" data-lang="ru">QA Engineer</p>
-                <p class="experience-subtitle" data-lang="en" style="display: none;">QA Engineer</p>
-                <ul class="experience-list">
-                    <li data-lang="ru">Проводил функциональное, регрессионное, smoke тестирование веб-продуктов</li>
-                    <li data-lang="ru">Разрабатывал и поддерживал тестовую документацию (95% покрытие функционала)</li>
-                    <li data-lang="ru">Выявил и задокументировал 100+ багов, в том числе критических</li>
-                    <li data-lang="en" style="display: none;">Conducted functional, regression, smoke testing of web products</li>
-                    <li data-lang="en" style="display: none;">Developed and maintained test documentation (95% feature coverage)</li>
-                    <li data-lang="en" style="display: none;">Identified and documented 100+ bugs, including critical ones</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">TestRail</span>
-                    <span class="tech-tag">Jira</span>
-                    <span class="tech-tag">Postman</span>
-                    <span class="tech-tag">DevTools</span>
+                <div class="experience-container">
+
+                    <div class="experience-row">
+                        <div class="experience-left">
+                            <div class="experience-period-main">03/2023 — present</div>
+                            <div class="experience-duration" data-start-date="2023-03-01" data-lang="ru"></div>
+                            <div class="experience-duration" data-start-date="2023-03-01" data-lang="en"></div>
+                        </div>
+                        <div class="experience-right">
+                            <h3 class="experience-title">Dunice (Natcar)</h3>
+                            <p class="experience-subtitle">QA Engineer</p>
+                            <ul class="experience-list">
+                                <li data-lang="ru">Полный цикл тестирования бэкенда и фронтенда, включая API и интеграции</li>
+                                <li data-lang="ru">Протестировал интеграцию с логистической системой Cargorun, выявив 30+ багов</li>
+                                <li data-lang="ru">Настроил виртуальные среды для тестирования, обеспечив 100% покрытие кейсами</li>
+                                <li data-lang="en">Full-cycle testing of backend and frontend, including API and integrations</li>
+                                <li data-lang="en">Tested integration with Cargorun logistics system, identifying 30+ bugs</li>
+                                <li data-lang="en">Set up virtual environments for testing, ensuring 100% case coverage</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Postman</span>
+                                <span class="tech-tag">Swagger</span>
+                                <span class="tech-tag">Zephyr</span>
+                                <span class="tech-tag">Kibana</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-row">
+                        <div class="experience-left">
+                            <div class="experience-period-main">09/2025 — present</div>
+                            <div class="experience-duration" data-start-date="2025-09-01" data-lang="ru"></div>
+                            <div class="experience-duration" data-start-date="2025-09-01" data-lang="en"></div>
+                        </div>
+                        <div class="experience-right">
+                            <h3 class="experience-title" data-lang="ru">Fastact (стартап)</h3>
+                            <h3 class="experience-title" data-lang="en">Fastact (startup)</h3>
+                            <p class="experience-subtitle">Part-time QA Engineer</p>
+                            <ul class="experience-list">
+                                <li data-lang="ru">Разработка и поддержка автоматизированных тестов на Java для бэкенда</li>
+                                <li data-lang="ru">Покрытие пользовательских сценариев через мануальное тестирование</li>
+                                <li data-lang="ru">Покрыл значительную часть бизнес-логики автотестами (coverage >80%)</li>
+                                <li data-lang="en">Development and maintenance of automated Java tests for backend</li>
+                                <li data-lang="en">Coverage of user scenarios through manual testing</li>
+                                <li data-lang="en">Covered a significant part of business logic with autotests (coverage >80%)</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">JUnit5</span>
+                                <span class="tech-tag">Postman</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Kafka</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-row">
+                        <div class="experience-left">
+                            <div class="experience-period-main">05/2021 — 03/2023</div>
+                            <div class="experience-duration" data-lang="ru">1 год 11 месяцев</div>
+                            <div class="experience-duration" data-lang="en">1 year 11 months</div>
+                        </div>
+                        <div class="experience-right">
+                            <h3 class="experience-title">SMENA</h3>
+                            <p class="experience-subtitle">QA Engineer</p>
+                            <ul class="experience-list">
+                                <li data-lang="ru">Проводил функциональное, регрессионное, smoke тестирование веб-продуктов</li>
+                                <li data-lang="ru">Разрабатывал и поддерживал тестовую документацию (95% покрытие функционала)</li>
+                                <li data-lang="ru">Выявил и задокументировал 100+ багов, в том числе критических</li>
+                                <li data-lang="en">Conducted functional, regression, smoke testing of web products</li>
+                                <li data-lang="en">Developed and maintained test documentation (95% feature coverage)</li>
+                                <li data-lang="en">Identified and documented 100+ bugs, including critical ones</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">TestRail</span>
+                                <span class="tech-tag">Jira</span>
+                                <span class="tech-tag">Postman</span>
+                                <span class="tech-tag">DevTools</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
-            
             <section id="skills" class="section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-number">02.</span>
                         <span class="section-text" data-lang="ru">Навыки</span>
-                        <span class="section-text" data-lang="en" style="display: none;">Skills</span>
+                        <span class="section-text" data-lang="en">Skills</span>
                     </h2>
                     <div class="line"></div>
                 </div>
                 <div class="section-content">
                     <div class="skills-grid">
-                        
+
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Типы тестирования</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Testing Types</h3>
+                            <h3 class="skills-category-title" data-lang="en">Testing Types</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Unit</span>
                                 <span class="skill-tag">Smoke</span>
@@ -235,10 +229,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Инструменты</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Tools</h3>
+                            <h3 class="skills-category-title" data-lang="en">Tools</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Jira</span>
                                 <span class="skill-tag">Zephyr</span>
@@ -253,10 +246,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Базы данных</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Databases</h3>
+                            <h3 class="skills-category-title" data-lang="en">Databases</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">PostgreSQL</span>
                                 <span class="skill-tag">MySQL</span>
@@ -264,10 +256,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Технологии</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Technologies</h3>
+                            <h3 class="skills-category-title" data-lang="en">Technologies</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">HTTP/REST</span>
                                 <span class="skill-tag">JSON/XML</span>
@@ -276,10 +267,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Языки & Фреймворки</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Languages & Frameworks</h3>
+                            <h3 class="skills-category-title" data-lang="en">Languages & Frameworks</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Java (JUnit5, Mockito)</span>
                                 <span class="skill-tag">Python (Pytest, Selenium)</span>
@@ -287,20 +277,17 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Методологии</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Methodologies</h3>
+                            <h3 class="skills-category-title" data-lang="en">Methodologies</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Agile (Scrum)</span>
                                 <span class="skill-tag">TDD</span>
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
-                            <h3 class="skills-category-title" data-lang="ru">CI/CD & DevOps</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">CI/CD & DevOps</h3>
+                            <h3 class="skills-category-title">CI/CD & DevOps</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Docker</span>
                                 <span class="skill-tag">GitLab CI/CD</span>
@@ -309,10 +296,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Тестирование API</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">API Testing</h3>
+                            <h3 class="skills-category-title" data-lang="en">API Testing</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">REST API</span>
                                 <span class="skill-tag">SOAP</span>
@@ -322,10 +308,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Мониторинг & Логи</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Monitoring & Logs</h3>
+                            <h3 class="skills-category-title" data-lang="en">Monitoring & Logs</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Kibana</span>
                                 <span class="skill-tag">Grafana</span>
@@ -334,10 +319,9 @@
                             </div>
                         </div>
 
-                        
                         <div class="skills-category">
                             <h3 class="skills-category-title" data-lang="ru">Менеджмент тестирования</h3>
-                            <h3 class="skills-category-title" data-lang="en" style="display: none;">Test Management</h3>
+                            <h3 class="skills-category-title" data-lang="en">Test Management</h3>
                             <div class="skills-list">
                                 <span class="skill-tag">Test Strategy</span>
                                 <span class="skill-tag">Test Planning</span>
@@ -345,17 +329,17 @@
                                 <span class="skill-tag">Metrics & Reporting</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
 
-            
             <section id="about" class="section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-number">03.</span>
                         <span class="section-text" data-lang="ru">Обо мне</span>
-                        <span class="section-text" data-lang="en" style="display: none;">About</span>
+                        <span class="section-text" data-lang="en">About</span>
                     </h2>
                     <div class="line"></div>
                 </div>
@@ -367,58 +351,54 @@
                         Специализируюсь на интеграционном и регрессионном тестировании, анализе логов (Kibana, ELK Stack), работе с SQL и документировании тестовой документации. Имею практический опыт автоматизации тестов на Java (JUnit5, Mockito) и Python (Pytest, Selenium).
                     </p>
                     <p data-lang="ru">
-                        Обладаю глубокими знаниями в области тестирования REST API, микросервисных архитектур и распределенных систем. Умею настраивать тестовые окружения, виртуальные среды и CI/CD пайплайны для эффективного тестирования.
+                        Обладаю глубокими знаниями в области тестирования REST API, микросервисных архитектур и распределённых систем. Умею настраивать тестовые окружения, виртуальные среды и CI/CD пайплайны для эффективного тестирования.
                     </p>
                     <p data-lang="ru">
-                        Постоянно изучаю новые инструменты и методологии тестирования. В работе ценю четкую коммуникацию, документацию и процессный подход. Стремлюсь к построению надежных тестовых стратегий, которые минимизируют риски и обеспечивают качество продукта.
+                        Постоянно изучаю новые инструменты и методологии тестирования. В работе ценю чёткую коммуникацию, документацию и процессный подход. Стремлюсь к построению надёжных тестовых стратегий, которые минимизируют риски и обеспечивают качество продукта.
                     </p>
-
-                    <p data-lang="en" style="display: none;">
+                    <p data-lang="en">
                         Middle QA Engineer with 4+ years of experience in full-cycle testing of web applications and APIs. Worked in cross-functional teams of up to 20 people using Scrum methodology, actively participated in sprint planning, retrospectives, and release processes.
                     </p>
-                    <p data-lang="en" style="display: none;">
+                    <p data-lang="en">
                         Specialized in integration and regression testing, log analysis (Kibana, ELK Stack), SQL, and test documentation. Have practical experience in test automation with Java (JUnit5, Mockito) and Python (Pytest, Selenium).
                     </p>
-                    <p data-lang="en" style="display: none;">
+                    <p data-lang="en">
                         Possess deep knowledge in REST API testing, microservice architectures, and distributed systems. Skilled in setting up test environments, virtual environments, and CI/CD pipelines for efficient testing.
                     </p>
-                    <p data-lang="en" style="display: none;">
+                    <p data-lang="en">
                         Constantly learning new testing tools and methodologies. Value clear communication, documentation, and process approach in work. Aim to build reliable test strategies that minimize risks and ensure product quality.
                     </p>
                 </div>
             </section>
 
-            
             <section id="education" class="section">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-number">04.</span>
                         <span class="section-text" data-lang="ru">Образование</span>
-                        <span class="section-text" data-lang="en" style="display: none;">Education</span>
+                        <span class="section-text" data-lang="en">Education</span>
                     </h2>
                     <div class="line"></div>
                 </div>
                 <div class="section-content">
                     <div class="education-item">
                         <h3 class="education-title" data-lang="ru">ТУРУС — Кафедра инженерной и вычислительной техники</h3>
-                        <h3 class="education-title" data-lang="en" style="display: none;">TURUS — Department of Engineering and Computer Science</h3>
-                        <p class="education-period" data-lang="ru">2023 — 2028</p>
-                        <p class="education-period" data-lang="en" style="display: none;">2023 — 2028</p>
+                        <h3 class="education-title" data-lang="en">TURUS — Department of Engineering and Computer Science</h3>
+                        <p class="education-period">2023 — 2028</p>
                     </div>
                     <div class="education-item">
                         <h3 class="education-title" data-lang="ru">ГТНУ — Инженер в нефтегазовой отрасли</h3>
-                        <h3 class="education-title" data-lang="en" style="display: none;">GTNU — Oil and Gas Industry Engineer</h3>
-                        <p class="education-period" data-lang="ru">2018 — 2022</p>
-                        <p class="education-period" data-lang="en" style="display: none;">2018 — 2022</p>
+                        <h3 class="education-title" data-lang="en">GTNU — Oil and Gas Industry Engineer</h3>
+                        <p class="education-period">2018 — 2022</p>
                     </div>
                 </div>
             </section>
 
-            
             <footer class="footer">
                 <p class="footer-text" data-lang="ru">Спасибо за просмотр моего портфолио :)</p>
-                <p class="footer-text" data-lang="en" style="display: none;">Thank you for scrolling my portfolio :)</p>
+                <p class="footer-text" data-lang="en">Thank you for scrolling my portfolio :)</p>
             </footer>
+
         </main>
     </div>
 
